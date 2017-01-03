@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  default: false
+  position: MyString
+  network: MyString
+  code: MyText
+  type: 
+  price: 9.99
+  traffic_source: MyString
+  countries: MyString
+  start_date: 2017-01-02 19:55:50
+  end_date: 2017-01-02 19:55:50
+  weight: 1
+
+two:
+  default: false
+  position: MyString
+  network: MyString
+  code: MyText
+  type: 
+  price: 9.99
+  traffic_source: MyString
+  countries: MyString
+  start_date: 2017-01-02 19:55:50
+  end_date: 2017-01-02 19:55:50
+  weight: 1

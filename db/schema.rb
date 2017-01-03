@@ -10,7 +10,83 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170102190258) do
+ActiveRecord::Schema.define(version: 20170103180410) do
+
+  create_table "ads", force: :cascade do |t|
+    t.boolean  "default"
+    t.string   "position"
+    t.string   "network"
+    t.text     "code"
+    t.string   "type"
+    t.decimal  "price",          precision: 10, scale: 5
+    t.string   "traffic_source"
+    t.string   "countries"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "weight"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
+
+  create_table "balances", force: :cascade do |t|
+    t.integer  "user_id"
+    t.decimal  "publisher_earnings", precision: 15, scale: 5
+    t.decimal  "referral_earnings",  precision: 15, scale: 5
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.index ["user_id"], name: "index_balances_on_user_id"
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "status"
+    t.string   "url"
+    t.string   "alias"
+    t.bigint   "hits"
+    t.bigint   "real_hits"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alias"], name: "index_links_on_alias", unique: true
+    t.index ["user_id"], name: "index_links_on_user_id"
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.string   "name"
+    t.string   "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.text     "content"
+    t.boolean  "published"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "payout_rates", force: :cascade do |t|
+    t.string   "country"
+    t.string   "country_code"
+    t.decimal  "earn",         precision: 10, scale: 5
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  create_table "statistics", force: :cascade do |t|
+    t.integer  "link_id"
+    t.integer  "ad_id"
+    t.string   "user_agent"
+    t.string   "ip"
+    t.string   "country"
+    t.string   "referrer_domain"
+    t.decimal  "publisher_earn",  precision: 15, scale: 5
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.index ["ad_id"], name: "index_statistics_on_ad_id"
+    t.index ["link_id"], name: "index_statistics_on_link_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -37,6 +113,20 @@ ActiveRecord::Schema.define(version: 20170102190258) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["referral_code"], name: "index_users_on_referral_code", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "withdrawals", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "transaction_id"
+    t.string   "status"
+    t.string   "method"
+    t.string   "account"
+    t.decimal  "amount",             precision: 15, scale: 5
+    t.decimal  "referral_earnings",  precision: 15, scale: 5
+    t.decimal  "publisher_earnings", precision: 15, scale: 5
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.index ["user_id"], name: "index_withdrawals_on_user_id"
   end
 
 end

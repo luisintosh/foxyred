@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  link: one
+  ad: one
+  user_agent: MyString
+  ip: MyString
+  country: MyString
+  referrer_domain: MyString
+  publisher_earn: 9.99
+
+two:
+  link: two
+  ad: two
+  user_agent: MyString
+  ip: MyString
+  country: MyString
+  referrer_domain: MyString
+  publisher_earn: 9.99

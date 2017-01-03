@@ -1,0 +1,2 @@
+class PayoutRate < ApplicationRecord
+end
