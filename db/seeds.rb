@@ -50,6 +50,7 @@ settings = [
     ['enable_coinbase_sandbox', 'false'],
     # Social media
     ['facebook_appid', ''],
+    ['facebook_thumbnail_url', ''],
     ['facebook_url', ''],
     ['twitter_url', ''],
     ['googleplus_url', ''],

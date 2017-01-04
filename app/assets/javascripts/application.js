@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require theme/js/lib/tether/tether.min.js
+//= require theme/js/lib/bootstrap/bootstrap.min.js
+//= require theme/js/plugins.js
+//= require theme/js/app.js
