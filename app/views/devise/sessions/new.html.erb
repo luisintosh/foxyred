@@ -4,6 +4,8 @@
   </div>
   <header class="sign-title">Log In</header>
 
+  <%= devise_error_messages! %>
+
   <div class="form-group">
     <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: true %>
   </div>
@@ -24,7 +26,7 @@
   <div class="actions">
     <%= f.submit "Log in", class: 'btn btn-primary' %>
   </div>
-  
+
   <div class="text-center">
     <p><em>- Or -</em></p>
     <%= render "devise/shared/links" %>

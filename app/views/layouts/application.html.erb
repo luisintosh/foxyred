@@ -12,6 +12,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    params[:controller] %>
   </head>
 
   <body class="with-side-menu">
@@ -25,5 +26,6 @@
     </div><!--.page-content-->
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag params[:controller] %>
   </body>
 </html>
