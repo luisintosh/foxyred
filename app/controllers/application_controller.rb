@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :configure_permitted_params, if: :devise_controller?
+  layout 'devise_layout', only: [:new, :create], if: :devise_controller?
 
   protected
 
