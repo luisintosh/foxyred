@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @payout_rate.country %>
+</p>
+
+<p>
+  <strong>Country code:</strong>
+  <%= @payout_rate.country_code %>
+</p>
+
+<p>
+  <strong>Earn:</strong>
+  <%= @payout_rate.earn %>
+</p>
+
+<%= link_to 'Edit', edit_payout_rate_path(@payout_rate) %> |
+<%= link_to 'Back', payout_rates_path %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @link.user %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @link.status %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @link.url %>
+</p>
+
+<p>
+  <strong>Alias:</strong>
+  <%= @link.alias %>
+</p>
+
+<p>
+  <strong>Hits:</strong>
+  <%= @link.hits %>
+</p>
+
+<p>
+  <strong>Real hits:</strong>
+  <%= @link.real_hits %>
+</p>
+
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>

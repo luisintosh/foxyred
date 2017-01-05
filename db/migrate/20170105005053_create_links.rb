@@ -5,8 +5,8 @@ class CreateLinks < ActiveRecord::Migration[5.0]
       t.string :status
       t.string :url
       t.string :alias
-      t.bigint :hits
-      t.bigint :real_hits
+      t.integer :hits
+      t.integer :real_hits
 
       t.timestamps
     end

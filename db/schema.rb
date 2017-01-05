@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170103180410) do
+ActiveRecord::Schema.define(version: 20170105010419) do
 
   create_table "ads", force: :cascade do |t|
     t.boolean  "default"
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 20170103180410) do
     t.string   "status"
     t.string   "url"
     t.string   "alias"
-    t.bigint   "hits"
-    t.bigint   "real_hits"
+    t.integer  "hits"
+    t.integer  "real_hits"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["alias"], name: "index_links_on_alias", unique: true

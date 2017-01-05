@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Payout Rates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Country</th>
+      <th>Country code</th>
+      <th>Earn</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @payout_rates.each do |payout_rate| %>
+      <tr>
+        <td><%= payout_rate.country %></td>
+        <td><%= payout_rate.country_code %></td>
+        <td><%= payout_rate.earn %></td>
+        <td><%= link_to 'Show', payout_rate %></td>
+        <td><%= link_to 'Edit', edit_payout_rate_path(payout_rate) %></td>
+        <td><%= link_to 'Destroy', payout_rate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Payout Rate', new_payout_rate_path %>

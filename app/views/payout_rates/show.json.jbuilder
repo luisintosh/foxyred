@@ -1,0 +1,1 @@
+json.partial! "payout_rates/payout_rate", payout_rate: @payout_rate

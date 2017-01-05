@@ -9,8 +9,8 @@ one:
   price: 9.99
   traffic_source: MyString
   countries: MyString
-  start_date: 2017-01-02 19:55:50
-  end_date: 2017-01-02 19:55:50
+  start_date: 2017-01-04 18:58:36
+  end_date: 2017-01-04 18:58:36
   weight: 1
 
 two:
@@ -22,6 +22,6 @@ two:
   price: 9.99
   traffic_source: MyString
   countries: MyString
-  start_date: 2017-01-02 19:55:50
-  end_date: 2017-01-02 19:55:50
+  start_date: 2017-01-04 18:58:36
+  end_date: 2017-01-04 18:58:36
   weight: 1

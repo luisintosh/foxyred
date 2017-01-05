@@ -1,0 +1,72 @@
+<%= form_for(ad) do |f| %>
+  <% if ad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
+
+      <ul>
+      <% ad.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :default %>
+    <%= f.check_box :default %>
+  </div>
+
+  <div class="field">
+    <%= f.label :position %>
+    <%= f.text_field :position %>
+  </div>
+
+  <div class="field">
+    <%= f.label :network %>
+    <%= f.text_field :network %>
+  </div>
+
+  <div class="field">
+    <%= f.label :code %>
+    <%= f.text_area :code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type %>
+    <%= f.text_field :type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :traffic_source %>
+    <%= f.text_field :traffic_source %>
+  </div>
+
+  <div class="field">
+    <%= f.label :countries %>
+    <%= f.text_field :countries %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date %>
+    <%= f.datetime_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date %>
+    <%= f.datetime_select :end_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :weight %>
+    <%= f.number_field :weight %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

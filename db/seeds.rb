@@ -8,8 +8,8 @@
 
 users = [
     # email, pass, confirm pass, role, first_name, last_name, address
-    ['admin@foxy.red', '123456', '123456', 'admin', 'Luis', 'Mendieta', 'Internet'],
-    ['anon@foxy.red', '123456', '123456', 'user', 'Anonymous', 'User', 'Internet']
+    ['admin@foxy.red', '123456', '123456', 'admin', 'Luis', 'Mendieta', 'Internet', '000000'],
+    ['anon@foxy.red', '123456', '123456', 'user', 'Anonymous', 'User', 'Internet', '111111']
 ]
 
 settings = [
@@ -86,8 +86,8 @@ payout_rates = [
     ['All Other Country', 'xx', 1.5],
 ]
 
-users.each do |a, b, c, d, e, f, g|
-    User.create(email: a, password: b, password_confirmation: c, role: d, first_name: e, last_name: f, address: g)
+users.each do |a, b, c, d, e, f, g, h|
+    User.create(email: a, password: b, password_confirmation: c, role: d, first_name: e, last_name: f, address: g, referral_code: h)
 end
 
 settings.each do |n, v|

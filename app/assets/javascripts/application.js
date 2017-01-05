@@ -17,3 +17,4 @@
 //= require theme/js/lib/bootstrap/bootstrap.min.js
 //= require theme/js/plugins.js
 //= require theme/js/app.js
+//= require theme/js/lib/match-height/jquery.matchHeight.min.js

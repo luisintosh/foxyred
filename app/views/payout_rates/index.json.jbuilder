@@ -1,0 +1,1 @@
+json.array! @payout_rates, partial: 'payout_rates/payout_rate', as: :payout_rate
