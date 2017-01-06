@@ -35,6 +35,8 @@ settings = [
     ['analytics_id', 'UA-XXXXXX'],
     ['recaptcha_public', '6LedexAUAAAAAJDY6uA1cVo0iucn6oiOR7AMl8pZ'],
     ['recaptcha_secret', '6LedexAUAAAAAPJwhf5hLwpnjcByHQOy5ZXA7OdM'],
+    ['facebook_appid', ''],
+    ['facebook_thumbnail_url', ''],
     # Payment
     ['paydays', '1,16'],
     ['currency_code', 'USD'],
@@ -49,8 +51,6 @@ settings = [
     ['coinbase_apisecret', ''],
     ['enable_coinbase_sandbox', 'false'],
     # Social media
-    ['facebook_appid', ''],
-    ['facebook_thumbnail_url', ''],
     ['facebook_url', ''],
     ['twitter_url', ''],
     ['googleplus_url', ''],

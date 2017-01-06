@@ -1,29 +1,123 @@
-<p id="notice"><%= notice %></p>
+<header class="section-header">
+  <div class="tbl">
+    <div class="tbl-row">
+      <div class="tbl-cell">
+        <h2>Options</h2>
+      </div>
+    </div>
+  </div>
+</header>
 
-<h1>Options</h1>
+<section class="tabs-section">
+  <div class="tabs-section-nav tabs-section-nav-icons">
+    <div class="tbl">
+      <ul class="nav" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" href="#tabs-1-tab-1" role="tab" data-toggle="tab" aria-expanded="true">
+            <span class="nav-link-in">
+              <i class="font-icon font-icon-cogwheel"></i>
+              General
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#tabs-1-tab-2" role="tab" data-toggle="tab" aria-expanded="false">
+            <span class="nav-link-in">
+              <span class="glyphicon glyphicon-music"></span>
+              Links
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#tabs-1-tab-3" role="tab" data-toggle="tab" aria-expanded="false">
+            <span class="nav-link-in">
+              <i class="fa fa-product-hunt"></i>
+              Integration
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#tabs-1-tab-4" role="tab" data-toggle="tab">
+            <span class="nav-link-in">
+              <i class="font-icon font-icon-users"></i>
+              Payment
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#tabs-1-tab-5" role="tab" data-toggle="tab">
+            <span class="nav-link-in">
+              <i class="font-icon font-icon-home"></i>
+              Social Media
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#tabs-1-tab-6" role="tab" data-toggle="tab">
+            <span class="nav-link-in">
+              <i class="font-icon font-icon-home"></i>
+              Emails
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div><!--.tabs-section-nav-->
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Value</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @options.each do |option| %>
-      <tr>
-        <td><%= option.name %></td>
-        <td><%= option.value %></td>
-        <td><%= link_to 'Show', option %></td>
-        <td><%= link_to 'Edit', edit_option_path(option) %></td>
-        <td><%= link_to 'Destroy', option, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Option', new_option_path %>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade active in" id="tabs-1-tab-1" aria-expanded="true">
+      <table class="table table-bordered table-hover">
+        <tbody>
+          <% @options[0..8].each do |option| %>
+            <%= render 'form', option: option %>
+          <% end %>
+        </tbody>
+      </table>
+    </div><!--.tab-pane-->
+    <div role="tabpanel" class="tab-pane fade" id="tabs-1-tab-2">
+      <table class="table table-bordered table-hover">
+        <tbody>
+          <% @options[9..15].each do |option| %>
+            <%= render 'form', option: option %>
+          <% end %>
+        </tbody>
+      </table>
+    </div><!--.tab-pane-->
+    <div role="tabpanel" class="tab-pane fade" id="tabs-1-tab-3">
+      <table class="table table-bordered table-hover">
+        <tbody>
+          <% @options[16..20].each do |option| %>
+            <%= render 'form', option: option %>
+          <% end %>
+        </tbody>
+      </table>
+    </div><!--.tab-pane-->
+    <div role="tabpanel" class="tab-pane fade" id="tabs-1-tab-4">
+      <table class="table table-bordered table-hover">
+        <tbody>
+          <% @options[21..32].each do |option| %>
+            <%= render 'form', option: option %>
+          <% end %>
+        </tbody>
+      </table>
+    </div><!--.tab-pane-->
+    <div role="tabpanel" class="tab-pane fade" id="tabs-1-tab-5">
+      <table class="table table-bordered table-hover">
+        <tbody>
+          <% @options[33..35].each do |option| %>
+            <%= render 'form', option: option %>
+          <% end %>
+        </tbody>
+      </table>
+    </div><!--.tab-pane-->
+    <div role="tabpanel" class="tab-pane fade" id="tabs-1-tab-6">
+      <table class="table table-bordered table-hover">
+        <tbody>
+          <% @options[36..39].each do |option| %>
+            <%= render 'form', option: option %>
+          <% end %>
+        </tbody>
+      </table>
+    </div><!--.tab-pane-->
+  </div><!--.tab-content-->
+</section>

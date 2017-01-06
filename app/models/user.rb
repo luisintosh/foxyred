@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Active Record Enum for roles
   # http://api.rubyonrails.org/classes/ActiveRecord/Enum.html
   enum role: [:user, :admin]
-  before_save :configure_user, :if => :new_record?
+  after_save :configure_user, :if => :new_record?
 
   validates :first_name, :last_name, :address, presence: true
 
