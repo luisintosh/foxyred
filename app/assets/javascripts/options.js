@@ -10,7 +10,7 @@ $('form').submit(function() {
     submitBtn.html('<i class="fa fa-refresh fa-spin fa-fw"></i>');
     //console.log($(this).parent().find('.submitbtn'));
     $.ajax({
-        type: "POST",
+        type: "PUT",
         url: $(this).attr('action') + '.json', //sumbits it to the given url of the form
         data: valuesToSubmit,
         dataType: "JSON" // you want a difference between normal and ajax-calls, and json is standard
