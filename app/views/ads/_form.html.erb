@@ -1,8 +1,10 @@
 <%= form_for(ad) do |f| %>
   <% if ad.errors.any? %>
-    <div id="error_explanation">
+    <div class="alert alert-danger alert-border-left alert-close alert-dismissible fade in">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
       <h2><%= pluralize(ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
-
       <ul>
       <% ad.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,62 +13,107 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :default %>
-    <%= f.check_box :default %>
+  <div class="form-group row">
+    <%= f.label :default, class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10">
+      <p class="form-control-static checkbox-toggle">
+        <%= f.check_box :default, class: 'form-control' %>
+        <%= f.label :default, 'Value' %>
+      </p>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :position %>
-    <%= f.text_field :position %>
+  <div class="form-group row">
+    <%= f.label :position, class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10">
+      <p class="form-control-static">
+        <%= f.select :position, Ad.get_positions, {include_blank: true}, {class: 'form-control'} %>
+      </p>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :network %>
-    <%= f.text_field :network %>
+  <div class="form-group row">
+    <%= f.label :network, class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10">
+      <p class="form-control-static">
+        <%= f.text_field :network, class: 'form-control' %>
+      </p>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :code %>
-    <%= f.text_area :code %>
+  <div class="form-group row">
+    <%= f.label :code, class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10">
+      <p class="form-control-static">
+        <%= f.text_area :code, class: 'form-control' %>
+      </p>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :type %>
-    <%= f.text_field :type %>
+  <div class="form-group row">
+    <%= f.label :type, class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10">
+      <p class="form-control-static">
+        <%= f.text_field :type, class: 'form-control' %>
+      </p>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :price %>
-    <%= f.text_field :price %>
+  <div class="form-group row">
+    <%= f.label :price, class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10">
+      <p class="form-control-static">
+        <%= f.text_field :price, class: 'form-control' %>
+      </p>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :traffic_source %>
-    <%= f.text_field :traffic_source %>
+  <div class="form-group row">
+    <%= f.label :traffic_source, class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10">
+      <p class="form-control-static">
+        <%= f.text_field :traffic_source, class: 'form-control' %>
+      </p>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :countries %>
-    <%= f.text_field :countries %>
+  <div class="form-group row">
+    <%= f.label :countries, class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10">
+      <p class="form-control-static">
+        <%= f.text_field :countries, class: 'form-control' %>
+      </p>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :start_date %>
-    <%= f.datetime_select :start_date %>
+  <div class="form-group row">
+    <%= f.label :start_date, class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10">
+      <p class="form-control-static">
+        <%= f.datetime_select :start_date, class: 'form-control' %>
+      </p>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :end_date %>
-    <%= f.datetime_select :end_date %>
+  <div class="form-group row">
+    <%= f.label :end_date, class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10">
+      <p class="form-control-static">
+        <%= f.datetime_select :end_date, class: 'form-control' %>
+      </p>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :weight %>
-    <%= f.number_field :weight %>
+  <div class="form-group row">
+    <%= f.label :weight, class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10">
+      <p class="form-control-static">
+        <%= f.number_field :weight, class: 'form-control' %>
+      </p>
+    </div>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, class: 'btn btn-success' %>
   </div>
 <% end %>
