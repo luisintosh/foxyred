@@ -17,17 +17,17 @@
       <%= option.name.humanize %>
     </td>
     <td>
-      <% if [7,8,9,14,16].include? option.id #is a number %>
+      <% if option.datatype === 'string' # is string %>
+        <%= f.text_field :value, palceholder: true, class: 'form-control' %>
+      <% elsif option.datatype === 'integer' #is a number %>
         <%= f.number_field :value, palceholder: true, class: 'form-control' %>
-      <% elsif [6,10,11,12,13,25,27,28,30,31].include? option.id #is boolean %>
+      <% elsif option.datatype === 'boolean' #is boolean %>
         <div class="checkbox-toggle">
           <%= f.check_box :value, {id: "option-#{option.id}"}, 'true', 'false' %>
           <%= f.label :value, for: "option-#{option.id}" %>
         </div>
-      <% elsif [26,29,37,38,39,40].include? option.id #is email %>
+      <% elsif option.datatype === 'email' #is email %>
         <%= f.email_field :value, palceholder: true, class: 'form-control' %>
-      <% else # is string %>
-        <%= f.text_field :value, palceholder: true, class: 'form-control' %>
       <% end %>
     </td>
     <td>

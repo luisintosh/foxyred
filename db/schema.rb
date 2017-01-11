@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105010419) do
+ActiveRecord::Schema.define(version: 20170111181152) do
 
   create_table "ads", force: :cascade do |t|
     t.boolean  "default"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20170105010419) do
     t.string   "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "datatype"
   end
 
   create_table "pages", force: :cascade do |t|

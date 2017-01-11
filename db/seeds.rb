@@ -14,51 +14,51 @@ users = [
 
 settings = [
     # General
-    ['site_name', 'Foxy.red - Shorten URLs and earn money'],
-    ['site_description', 'Earn money for each visitor to your shortened links with foxy.red! We pay for each visit to your short link.'],
-    ['default_language', 'en'],
-    ['site_languages', 'en'],
-    ['logo_url', ''],
-    ['enable_ads', 'true'],
-    ['referral_percentage', '20'],
-    ['min_withdrawal_amount', '5'],
-    ['paid_views_per_day_for_campaign', '1'],
+    ['string', 'site_name', 'Foxy.red - Shorten URLs and earn money'],
+    ['string', 'site_description', 'Earn money for each visitor to your shortened links with foxy.red! We pay for each visit to your short link.'],
+    ['string', 'default_language', 'en'],
+    ['string', 'site_languages', 'en'],
+    ['string', 'logo_url', ''],
+    ['boolean', 'enable_ads', 'true'],
+    ['integer', 'referral_percentage', '20'],
+    ['integer', 'min_withdrawal_amount', '5'],
+    ['integer', 'paid_views_per_day_for_campaign', '1'],
     # Links 
-    ['enable_interstitial_ads', 'true'],
-    ['enable_banner_ads', 'true'],
-    ['enable_popup_ads', 'true'],
-    ['display_home_shortening_box', 'true'],
-    ['mass_shrinker_limit', '30'],
-    ['disallowed_domains', 'localhost,127.0.0.1,0.0.0.0'],
-    ['alias_length', '6'],
+    ['boolean', 'enable_interstitial_ads', 'true'],
+    ['boolean', 'enable_banner_ads', 'true'],
+    ['boolean', 'enable_popup_ads', 'true'],
+    ['boolean', 'display_home_shortening_box', 'true'],
+    ['integer', 'mass_shrinker_limit', '30'],
+    ['string', 'disallowed_domains', 'localhost,127.0.0.1,0.0.0.0'],
+    ['integer', 'alias_length', '6'],
     # Integration
-    ['analytics_id', 'UA-XXXXXX'],
-    ['recaptcha_public', '6LedexAUAAAAAJDY6uA1cVo0iucn6oiOR7AMl8pZ'],
-    ['recaptcha_secret', '6LedexAUAAAAAPJwhf5hLwpnjcByHQOy5ZXA7OdM'],
-    ['facebook_appid', ''],
-    ['facebook_thumbnail_url', ''],
+    ['string', 'analytics_id', 'UA-XXXXXX'],
+    ['string', 'recaptcha_public', '6LedexAUAAAAAJDY6uA1cVo0iucn6oiOR7AMl8pZ'],
+    ['string', 'recaptcha_secret', '6LedexAUAAAAAPJwhf5hLwpnjcByHQOy5ZXA7OdM'],
+    ['string', 'facebook_appid', ''],
+    ['string', 'facebook_thumbnail_url', ''],
     # Payment
-    ['paydays', '1,16'],
-    ['currency_code', 'USD'],
-    ['currency_symbol', '$'],
-    ['enable_paypal', 'true'],
-    ['paypal_email', ''],
-    ['enable_paypal_sandbox', 'false'],
-    ['enable_payza', 'false'],
-    ['payza_email', ''],
-    ['enable_coinbase', 'false'],
-    ['coinbase_apikey', ''],
-    ['coinbase_apisecret', ''],
-    ['enable_coinbase_sandbox', 'false'],
+    ['string', 'paydays', '1,16'],
+    ['string', 'currency_code', 'USD'],
+    ['string', 'currency_symbol', '$'],
+    ['boolean', 'enable_paypal', 'true'],
+    ['email', 'paypal_email', ''],
+    ['boolean', 'enable_paypal_sandbox', 'false'],
+    ['boolean', 'enable_payza', 'false'],
+    ['email', 'payza_email', ''],
+    ['boolean', 'enable_coinbase', 'false'],
+    ['string', 'coinbase_apikey', ''],
+    ['string', 'coinbase_apisecret', ''],
+    ['boolean', 'enable_coinbase_sandbox', 'false'],
     # Social media
-    ['facebook_url', ''],
-    ['twitter_url', ''],
-    ['googleplus_url', ''],
+    ['string', 'facebook_url', ''],
+    ['string', 'twitter_url', ''],
+    ['string', 'googleplus_url', ''],
     # Email
-    ['admin_email', 'admin@foxy.red'],
-    ['from_email', 'no_reply@foxy.red'],
-    ['support_email', 'support@foxy.red'],
-    ['dcma_email', 'dcma@foxy.red']
+    ['email', 'admin_email', 'admin@foxy.red'],
+    ['email', 'from_email', 'no_reply@foxy.red'],
+    ['email', 'support_email', 'support@foxy.red'],
+    ['email', 'dcma_email', 'dcma@foxy.red']
 ]
 
 pages = [
@@ -90,8 +90,8 @@ users.each do |a, b, c, d, e, f, g, h|
     User.create(email: a, password: b, password_confirmation: c, role: d, first_name: e, last_name: f, address: g, referral_code: h)
 end
 
-settings.each do |n, v|
-    Option.create(name: n, value: v)
+settings.each do |t, n, v|
+    Option.create(datatype: t, name: n, value: v)
 end
 
 pages.each do |a, b, c, d|
