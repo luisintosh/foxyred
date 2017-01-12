@@ -6,7 +6,7 @@ class CreateAds < ActiveRecord::Migration[5.0]
       t.string :network
       t.text :code
       t.string :type
-      t.decimal :price, precision: 10, scale: 5
+      t.decimal :price, precision: 10, scale: 5,  default: 0.0,  null: false
       t.string :traffic_source
       t.string :countries
       t.datetime :start_date

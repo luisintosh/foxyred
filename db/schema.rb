@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20170111181152) do
     t.string   "network"
     t.text     "code"
     t.string   "type"
-    t.decimal  "price",          precision: 10, scale: 5
+    t.decimal  "price",          precision: 10, scale: 5, default: 0.0,  null: false
     t.string   "traffic_source"
     t.string   "countries"
     t.datetime "start_date"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20170111181152) do
 
   create_table "balances", force: :cascade do |t|
     t.integer  "user_id"
-    t.decimal  "publisher_earnings", precision: 15, scale: 5
-    t.decimal  "referral_earnings",  precision: 15, scale: 5
+    t.decimal  "publisher_earnings", precision: 15, scale: 5, default: 0.0,  null: false
+    t.decimal  "referral_earnings",  precision: 15, scale: 5, default: 0.0,  null: false
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
     t.index ["user_id"], name: "index_balances_on_user_id"
@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(version: 20170111181152) do
 
   create_table "links", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "status"
+    t.integer  "status"
     t.string   "url"
     t.string   "alias"
-    t.integer  "hits"
-    t.integer  "real_hits"
+    t.integer  "hits",       default: 0,  null: false
+    t.integer  "real_hits",  default: 0,  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["alias"], name: "index_links_on_alias", unique: true
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20170111181152) do
     t.string   "ip"
     t.string   "country"
     t.string   "referrer_domain"
-    t.decimal  "publisher_earn",  precision: 15, scale: 5
+    t.decimal  "publisher_earn",  precision: 15, scale: 5,  default: 0.0,  null: false
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.index ["ad_id"], name: "index_statistics_on_ad_id"

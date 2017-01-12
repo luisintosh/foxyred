@@ -7,7 +7,7 @@ class CreateStatistics < ActiveRecord::Migration[5.0]
       t.string :ip
       t.string :country
       t.string :referrer_domain
-      t.decimal :publisher_earn, precision: 15, scale: 5
+      t.decimal :publisher_earn, precision: 15, scale: 5, default: 0.0,  null: false
 
       t.timestamps
     end
