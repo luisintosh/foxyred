@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Active Record Enum for roles
   # http://api.rubyonrails.org/classes/ActiveRecord/Enum.html
   enum role: [:user, :admin]
-  after_save :configure_user, :if => :new_record?
+  after_initialize :configure_user, :if => :new_record?
 
   validates :first_name, :last_name, :address, presence: true
 
@@ -16,19 +16,20 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   protected
+    def configure_user
+      # If user doesn't have role, adds one
+      self.role ||= :user
 
-  def configure_user
-    # If user doesn't have role, adds one
-    self.role ||= :user
+      # This creates a new code with letters and numbers until doesn't find it in the db
+      code = :random_code
+      loop do
+        code = SecureRandom.base58 5
+        break unless User.exists?(referral_code: code)
+      end
 
-    # This creates a new code with letters and numbers until doesn't find it in the db
-    begin
-      code = (0..5).map { rand(36).to_s(36) }.join
-    end while User.exists?(referral_code: code)
+      self.referral_code ||= code
 
-    self.referral_code ||= code
-
-    # Create its account balance
-    self.create_balance(publisher_earnings: 0.0, referral_earnings: 0.0)
-  end
+      # Create its account balance
+      self.create_balance(publisher_earnings: 0.0, referral_earnings: 0.0)
+    end
 end
