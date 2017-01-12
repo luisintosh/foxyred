@@ -2,7 +2,8 @@ class User < ApplicationRecord
   # Active Record Enum for roles
   # http://api.rubyonrails.org/classes/ActiveRecord/Enum.html
   enum role: [:user, :admin]
-  after_initialize :configure_user, :if => :new_record?
+  before_save :configure_user, :if => :new_record?
+  after_save :create_balance, :if => :new_record?
 
   validates :first_name, :last_name, :address, presence: true
 
@@ -28,7 +29,9 @@ class User < ApplicationRecord
       end
 
       self.referral_code ||= code
+    end
 
+    def create_balance
       # Create its account balance
       self.create_balance(publisher_earnings: 0.0, referral_earnings: 0.0)
     end
