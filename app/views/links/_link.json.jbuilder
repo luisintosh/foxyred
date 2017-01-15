@@ -1,2 +1,4 @@
-json.extract! link, :id, :user_id, :status, :url, :alias, :hits, :real_hits, :created_at, :updated_at
-json.url link_url(link, format: :json)
+json.short_url root_url(only_path: false) + link.alias
+json.original_url link.url
+json.extract! link, :alias, :hits, :created_at
+json.delete_url url_for(link)

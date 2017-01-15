@@ -8,10 +8,10 @@
       </a>
     </li>
     <li class="blue">
-      <a href="#">
+      <%= link_to links_path do %>
         <i class="font-icon glyphicon glyphicon-link"></i>
         <span class="lbl">Links</span>
-      </a>
+      <% end %>
     </li>
     <li class="green">
       <a href="#">
@@ -51,6 +51,9 @@
   <section>
     <header class="side-menu-title">Admin</header>
     <ul class="side-menu-list">
+      <%= link_to ads_path do %>
+        <i class="tag-color green"></i><span class="lbl">Ads</span>
+      <% end %>
       <%= link_to options_path do %>
         <i class="tag-color pink"></i><span class="lbl">Options</span>
       <% end %>

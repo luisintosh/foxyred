@@ -1,37 +1,29 @@
-<p id="notice"><%= notice %></p>
+<header class="section-header">
+  <h1>Links</h1>
+</header>
+<section class="card">
+  <div class="card-block">
+    <table id="table"
+          class="table table-striped table-bordered"
+          data-toolbar="#toolbar"
+          data-search="true"
+          data-show-refresh="true"
+          data-show-toggle="true"
+          data-show-columns="true"
+          data-show-export="true"
+          data-detail-formatter="detailFormatter"
+          data-minimum-count-columns="2"
+          data-show-pagination-switch="true"
+          data-pagination="true"
+          data-id-field="alias"
+          data-page-list="[10, 25, 50, 100]"
+          data-show-footer="false"
+          data-sort-order="desc"
+          data-url="/links.json"
+          data-side-pagination="server"
+          data-response-handler="responseHandler">
+    </table>
+  </div>
+</section><!--.box-typical-->
 
-<h1>Links</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Status</th>
-      <th>Url</th>
-      <th>Alias</th>
-      <th>Hits</th>
-      <th>Real hits</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @links.each do |link| %>
-      <tr>
-        <td><%= link.user %></td>
-        <td><%= link.status %></td>
-        <td><%= link.url %></td>
-        <td><%= link.alias %></td>
-        <td><%= link.hits %></td>
-        <td><%= link.real_hits %></td>
-        <td><%= link_to 'Show', link %></td>
-        <td><%= link_to 'Edit', edit_link_path(link) %></td>
-        <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Link', new_link_path %>
+<%= javascript_include_tag '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58786505bcb77a1a&async=1' %>

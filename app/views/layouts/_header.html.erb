@@ -57,9 +57,20 @@
         <div class="mobile-menu-right-overlay"></div>
         <div class="site-header-collapsed">
           <div class="site-header-collapsed-in">
-            <a class="btn btn-nav btn-rounded btn-inline btn-danger" href="#">
-              <i class="glyphicon glyphicon-plus"></i> New URL
-            </a>
+            <%= form_for(current_user.links.new) do |f| %>
+            <div class="shortlink-form">
+              <div class="form-group">
+                <div class="input-group">
+                  <%= f.url_field :url, class: 'form-control', placeholder: 'http://', required: true, autocomplete: 'off' %>
+                  <span class="input-group-btn">
+                    <%= f.button class: 'btn btn-danger' do %>
+                      Shorten
+                    <% end %>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <% end %>
           </div>
           <!--.site-header-collapsed-in-->
         </div>
