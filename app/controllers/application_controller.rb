@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :configure_permitted_params, if: :devise_controller?
+  before_action :configure_referral_cookie, if: :devise_controller? || :home_controller?
   layout :layout_by_resource # set devise user layout for unsigned users
 
   protected
@@ -16,6 +17,12 @@ class ApplicationController < ActionController::Base
       'devise_layout'
     else
       'application'
+    end
+  end
+
+  def configure_referral_cookie
+    if params[:r]
+      cookies.signed[:r] = { value: params[:r], expires: 1.day.from_now }
     end
   end
 end

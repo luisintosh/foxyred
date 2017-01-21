@@ -6,7 +6,7 @@ class LinksController < ApplicationController
   def index
     sort = params[:sort] || :id
     order = params[:order] || :desc
-    limit = params[:limit] || 10
+    limit = (params[:limit] && params[:limit] <= 100) || 10
     @links = current_user.links.all
                   .search(params[:search])
                   .order(sort => order)

@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ahoy
 //= require theme/js/lib/tether/tether.min.js
 //= require theme/js/lib/bootstrap/bootstrap.min.js
 //= require theme/js/plugins.js
@@ -85,7 +86,7 @@ $(document).on('focusin', '.shortlink-form input', function (e) {
             $('#new_link').find('input[type="submit"]').removeAttr('disabled');
             $('#new_link button[type="submit"]').html(submitbtn);
 
-            $('#table').bootstrapTable('refresh');
+            $('#table-links').bootstrapTable('refresh');
         },
         error: function (result,status,xhr) {
             swal('Error!', 'Uh oh! We have a problem.', 'error');

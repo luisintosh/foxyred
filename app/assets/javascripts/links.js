@@ -16,7 +16,7 @@ Date.prototype.yyyymmdd = function() {
 };
 
 // table
-var $table = $('#table');
+var $table = $('#table-links');
 
 function initTable() {
     $table.bootstrapTable({
