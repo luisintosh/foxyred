@@ -11,7 +11,7 @@
 function reCaptchaVerify(response) {
   if (response === document.querySelector('.g-recaptcha-response').value) {
     $('#link-captcha').submit();
-    console.log(true, $('#link-captcha'));
+    //console.log(true, $('#link-captcha'));
   }
 }
 
@@ -67,4 +67,5 @@ $(document).ready(function() {
   if (location.href.match(/\/go\//)) {
     startCountDown();
   }
+  ahoy.trackAll();
 });

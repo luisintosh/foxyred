@@ -83,7 +83,7 @@ payout_rates = [
     ['New Zealand', 'nz', 1.65],
     ['Netherlands', 'nl', 1.65],
     ['Brazil', 'br', 1.6],
-    ['All Other Country', 'xx', 1.5],
+    ['All Other Country', 'xx', 1.6],
 ]
 
 users.each do |a, b, c, d, e, f, g, h|

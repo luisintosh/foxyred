@@ -6,9 +6,9 @@ class CreateWithdrawals < ActiveRecord::Migration[5.0]
       t.string :status
       t.string :method
       t.string :account
-      t.decimal :amount, precision: 15, scale: 5
-      t.decimal :referral_earnings, precision: 15, scale: 5
-      t.decimal :publisher_earnings, precision: 15, scale: 5
+      t.decimal :amount, precision: 12, scale: 4
+      t.decimal :referral_earnings, precision: 12, scale: 4
+      t.decimal :publisher_earnings, precision: 12, scale: 4
 
       t.timestamps
     end

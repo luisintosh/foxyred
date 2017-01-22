@@ -58,5 +58,5 @@ gem 'will_paginate'
 # Google reCaptcha
 gem "recaptcha", require: "recaptcha/rails"
 
-# Track visits
+# User tracker
 gem 'ahoy_matey'

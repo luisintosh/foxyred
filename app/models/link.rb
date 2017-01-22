@@ -9,11 +9,39 @@ class Link < ApplicationRecord
   # validate url not in disallowed_domains array
   validate :exclude_urls
 
+  # Class method to search
   def self.search(search)
     if search
       where('url LIKE ?', "%#{search}%")
     else
       self
+    end
+  end
+
+  # Logic to record visits
+  def new_visit(visit)
+    # Chek ip in db
+    lastVisit = Statistic.find_by ip: visit.ip
+    # If the last visit is less than one day
+    if lastVisit && lastVisit.created_at < 1.day.ago
+      return
+    else
+      rate = PayoutRate.find_by(country_code: visit.country)
+      # If is empty asign default payout rate
+      rate ||= PayoutRate.find_by(country_code: :xx)
+      # Calculate earning per view
+      earnings = rate.earn / 1000
+      # Save record
+      Statistic.create( 
+              link_id: self.id, 
+              user_agent: visit.user_agent, 
+              ip: visit.ip, 
+              country: visit.country, 
+              referrer_domain: visit.referring_domain, 
+              publisher_earn: earnings)
+      # Set new hit to this link
+      self.hits = (self.hits).to_i + 1
+      self.save
     end
   end
 
@@ -39,4 +67,5 @@ class Link < ApplicationRecord
         end
       end
     end
+
 end

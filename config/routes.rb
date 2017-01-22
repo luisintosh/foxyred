@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   root 'home#index'
 
   #show ad link
-  get '/:alias', to: 'home#adlink_in', constraints: { alias: /\w+/ }, via: :get
-  post 'go/:alias', to: 'home#adlink_out', constraints: { alias: /\w+/ }, via: :post
+  get '/:alias', to: 'links#visit_in', constraints: { alias: /\w+/ }, via: :get
+  get 'go/:alias', to: 'links#visit_out', constraints: { alias: /\w+/ }, via: :get
+  post 'go/:alias', to: 'links#visit_out', constraints: { alias: /\w+/ }, via: :post
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
