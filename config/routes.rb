@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'dashboard', to: 'dashboard#index', as: 'dashboard'
-  get 'dashboard/chart_data', to: 'dashboard#chart_data'
-
+  
   # user panel
   resources :ads, :links, :pages, :payout_rates, :options
+  get 'dashboard', to: 'dashboard#index', as: 'dashboard'
+  get 'dashboard/chart_data', to: 'dashboard#chart_data'
   get 'referrals', to: 'referrals#index', as: 'referrals'
   
   # user administration
