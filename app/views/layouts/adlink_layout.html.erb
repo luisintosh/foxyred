@@ -13,6 +13,10 @@
     <![endif]-->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'adlink' %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'adlink' %>
+    <%= javascript_include_tag 'https://www.google.com/recaptcha/api.js?onload=reCaptchaCallback&render=explicit' %>
   </head>
 
   <body>
@@ -82,9 +86,5 @@
             </div>
         </div>
     </footer>
-    
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'adlink' %>
-    <%= javascript_include_tag 'https://www.google.com/recaptcha/api.js?onload=reCaptchaCallback&render=explicit' %>
   </body>
 </html>

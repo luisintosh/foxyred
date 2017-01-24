@@ -3,62 +3,14 @@
 
 // Date hack
 Date.prototype.yyyymmdd = function() {
-  var mm = this.getMonth() + 1; // getMonth() is zero-based
-  var dd = this.getDate();
+var mm = this.getMonth() + 1; // getMonth() is zero-based
+var dd = this.getDate();
 
-  return [this.getFullYear(),
-          (mm>9 ? '' : '0') + mm,
-          (dd>9 ? '' : '0') + dd
-         ].join('-');
+return [this.getFullYear(),
+        (mm>9 ? '' : '0') + mm,
+        (dd>9 ? '' : '0') + dd
+        ].join('-');
 };
-
-// table
-var $table = $('#table-links');
-
-function initTable() {
-    $table.bootstrapTable({
-        columns: [
-            {
-                field: 'short_url',
-                title: 'Short url',
-                align: 'center',
-                formatter: shortFormatter
-            },
-            {
-                field: 'created_at',
-                title: 'Created on',
-                sortable: true,
-                align: 'center',
-                formatter: createdFormatter
-            },
-            {
-                field: 'hits',
-                title: 'Views',
-                sortable: true,
-                align: 'center'
-            },
-            {
-                field: 'earnings',
-                title: 'Earnings',
-                align: 'center'
-            },
-            {
-                field: 'actions',
-                title: 'Actions',
-                align: 'center',
-                events: operateEvents,
-                formatter: operateFormatter
-            }
-        ]
-    });
-}
-
-function responseHandler(res) {
-    /*$.each(res.rows, function (i, row) {
-        row.state = $.inArray(row.id, selections) !== -1;
-    });*/
-    return res;
-}
 
 function shortFormatter(value, row, index) {
     return [
@@ -122,11 +74,54 @@ window.operateEvents = {
     }
 };
 
-$table.on('post-body.bs.table', function(name, args) {
-    $('[data-toggle="tooltip"]').tooltip();
-    addthis.toolbox('.addthis_toolbox');
-});
 
-$(document).ready(function() {
-    initTable();
+
+///////////////////////////////////////////
+//            TURBOLINKS START           //
+$(document).on('turbolinks:load', function() {
+    
+    // bootstrap-table
+    var $table = $('#table-links');
+
+    $table.bootstrapTable({
+        columns: [
+            {
+                field: 'short_url',
+                title: 'Short url',
+                align: 'center',
+                formatter: shortFormatter
+            },
+            {
+                field: 'created_at',
+                title: 'Created on',
+                sortable: true,
+                align: 'center',
+                formatter: createdFormatter
+            },
+            {
+                field: 'hits',
+                title: 'Views',
+                sortable: true,
+                align: 'center'
+            },
+            {
+                field: 'earnings',
+                title: 'Earnings',
+                align: 'center'
+            },
+            {
+                field: 'actions',
+                title: 'Actions',
+                align: 'center',
+                events: operateEvents,
+                formatter: operateFormatter
+            }
+        ]
+    });
+
+    $table.on('post-body.bs.table', function(name, args) {
+        $('[data-toggle="tooltip"]').tooltip();
+        addthis.toolbox('.addthis_toolbox');
+    });
+
 });
