@@ -16,6 +16,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
+  def links_statistics
+    mdays = Time.days_in_month(Time.now.month, Time.now.year)
+    dataset = [0]
+    1.upto(mdays) do |day|
+      dataset.push Statistic.joins(:link)
+                            .where('links.user_id': self.id, 
+                                    'statistics.created_at': Time.parse("#{Time.now.year}-#{Time.now.month}-#{day}").utc.all_day).count
+    end
+    dataset
+  end
+
   protected
     def configure_user
       # If user doesn't have role, adds one

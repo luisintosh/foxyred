@@ -1,5 +1,6 @@
 class Link < ApplicationRecord
   belongs_to :user
+  has_many :statistics, dependent: :destroy
   after_initialize :configure_link, :if => :new_record?
   enum status: [:active, :suspended]
 
@@ -21,9 +22,9 @@ class Link < ApplicationRecord
   # Logic to record visits
   def new_visit(visit)
     # Chek ip in db
-    lastVisit = Statistic.find_by ip: visit.ip
-    # If the last visit is less than one day
-    if lastVisit && lastVisit.created_at < 1.day.ago
+    last_visit = Statistic.where(ip: visit.ip).last
+    # Ends if the last visit has no more than 1 day
+    if last_visit && ((last_visit.created_at + 1.day) > Time.now)
       return
     else
       rate = PayoutRate.find_by(country_code: visit.country)

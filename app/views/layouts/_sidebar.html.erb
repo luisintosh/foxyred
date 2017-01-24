@@ -2,10 +2,10 @@
 <nav class="side-menu">
   <ul class="side-menu-list">
     <li class="red">
-      <a href="#">
+      <%= link_to dashboard_path do %>
         <i class="glyphicon glyphicon-stats"></i>
         <span class="lbl">Dashboard</span>
-      </a>
+      <% end %>
     </li>
     <li class="blue">
       <%= link_to links_path do %>

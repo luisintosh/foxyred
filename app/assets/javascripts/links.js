@@ -31,7 +31,6 @@ function initTable() {
                 field: 'created_at',
                 title: 'Created on',
                 sortable: true,
-                editable: true,
                 align: 'center',
                 formatter: createdFormatter
             },
@@ -39,7 +38,11 @@ function initTable() {
                 field: 'hits',
                 title: 'Views',
                 sortable: true,
-                editable: true,
+                align: 'center'
+            },
+            {
+                field: 'earnings',
+                title: 'Earnings',
                 align: 'center'
             },
             {
