@@ -24,11 +24,9 @@ class Link < ApplicationRecord
     # Chek ip in db
     last_visit = Statistic.where(ip: visit.ip).last
     # Ends if the last visit has no more than 1 day
-    if false #last_visit && ((last_visit.created_at + 1.day) > Time.now)
-      puts '========== NO GUARDA RECORD ============'
+    if last_visit && ((last_visit.created_at + 1.day) > Time.now)
       return
     else
-      puts '========== SI GUARDA RECORD ============'
       rate = PayoutRate.find_by(country_code: visit.country)
       # If is empty asign default payout rate
       rate ||= PayoutRate.find_by(country_code: :xx)
