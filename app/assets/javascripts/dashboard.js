@@ -10,8 +10,13 @@ var chart = c3.generate({
     axis: {
         y: {
             label: { // ADD
-            text: 'Views',
-            position: 'outer-middle'
+                text: 'Views',
+                position: 'outer-middle'
+            },
+            tick: {
+                format: function (d) {
+                    return (parseInt(d) == d) ? d : null;
+                }
             }
         },
     }

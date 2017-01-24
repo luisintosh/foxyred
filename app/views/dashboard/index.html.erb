@@ -2,7 +2,7 @@
     <div class="col-sm-4">
         <div class="statistic-box red">
             <div>
-                <div class="number">0</div>
+                <div class="number"><%= @views %></div>
                 <div class="caption">
                     <div>Views</div>
                 </div>
@@ -12,7 +12,7 @@
     <div class="col-sm-4">
         <div class="statistic-box red">
             <div>
-                <div class="number">$0.0002</div>
+                <div class="number">$<%= @earnings.to_s %></div>
                 <div class="caption">
                     <div>Earnings</div>
                 </div>
@@ -22,7 +22,7 @@
     <div class="col-sm-4">
         <div class="statistic-box green">
             <div>
-                <div class="number">$0.0003</div>
+                <div class="number">$<%= (@earnings - @earnings_collected).to_s %></div>
                 <div class="caption">
                     <div>Total Available Earnings</div>
                 </div>

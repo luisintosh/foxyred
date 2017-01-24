@@ -24,9 +24,11 @@ class Link < ApplicationRecord
     # Chek ip in db
     last_visit = Statistic.where(ip: visit.ip).last
     # Ends if the last visit has no more than 1 day
-    if last_visit && ((last_visit.created_at + 1.day) > Time.now)
+    if false #last_visit && ((last_visit.created_at + 1.day) > Time.now)
+      puts '========== NO GUARDA RECORD ============'
       return
     else
+      puts '========== SI GUARDA RECORD ============'
       rate = PayoutRate.find_by(country_code: visit.country)
       # If is empty asign default payout rate
       rate ||= PayoutRate.find_by(country_code: :xx)
@@ -43,6 +45,16 @@ class Link < ApplicationRecord
       # Set new hit to this link
       self.hits = (self.hits).to_i + 1
       self.save
+      # Save earnings
+      balance = self.user.balance
+      balance.publisher_earnings += earnings
+      balance.save
+      # Send earnings to referral user 
+      if self.user.referred_by
+        refer = User.find self.user.referred_by
+        refer.referral_earnings( earnings*(Option.get(:referral_percentage)/100) )
+        refer.save
+      end
     end
   end
 
