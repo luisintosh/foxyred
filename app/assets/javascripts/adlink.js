@@ -1,11 +1,5 @@
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require theme/js/lib/tether/tether.min.js
-//= require theme/js/lib/bootstrap/bootstrap.min.js
-//= require theme/js/plugins.js
-//= require theme/js/app.js
-//= require theme/js/lib/match-height/jquery.matchHeight.min.js
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
 
 // functions for first step of link ad
 function reCaptchaVerify(response) {

@@ -21,6 +21,11 @@
 //= require theme/js/lib/match-height/jquery.matchHeight.min.js
 //= require theme/js/lib/bootstrap-sweetalert/sweetalert.min.js
 //= require theme/js/lib/clipboard.js/dist/clipboard.min.js
+//= require theme/js/lib/bootstrap-table/bootstrap-table.js
+//= require theme/js/lib/bootstrap-table/bootstrap-table-export.min.js
+//= require theme/js/lib/bootstrap-table/tableExport.min.js
+//= require theme/js/lib/charts-c3js/c3.min.js
+//= require theme/js/lib/d3/d3.min.js
 
 
 // Clipboard copy init
