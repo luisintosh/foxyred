@@ -2,32 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import 'theme/css/lib/charts-c3js/c3.min.css';
-@import "theme/css/lib/bootstrap-table/bootstrap-table.min.css";
-
-#chart .c3-line-Views {
+.dashboard #chart .c3-line-Views {
     stroke-width: 5px;
 }
-.addthis_toolbox a {
+.dashboard .addthis_toolbox a {
     margin-bottom: 0 !important;
 }
-#table-links tr .col {
+.dashboard #table-links tr .col {
     display: inline-flex;
     padding: 0 5px;
 }
-#table-links tr td:last-child {
+.dashboard #table-links tr td:last-child {
     width:1%;
     white-space:nowrap;
 }
 
-#table-links .link-tag {
+.dashboard #table-links .link-tag {
     color: #d9534f;
     text-decoration: none;
     font-weight: bold;
     border-bottom: none;
 }
 
-#table-links .originalurl-tag {
+.dashboard #table-links .originalurl-tag {
     color: lightslategray;
     font-style: italic;
     display: inline-block;

@@ -1,24 +1,20 @@
-@import "theme/css/lib/font-awesome/font-awesome.min.css";
-@import "theme/css/lib/bootstrap/bootstrap.min.css";
-@import "theme/css/lib/animate/animate.css";
-@import "theme/css/main.css";
 
-.fixheader {
+.adlink .fixheader {
     height: 100px;
 }
-.card .card-block {
+.adlink .card .card-block {
     padding: 40px 30px 30px;
 }
-.content, .about, .getit {
+.adlink .content, .about, .getit {
     padding: 80px 0 160px;
 }
-.about {
+.adlink .about {
     background: white;
 }
-footer {
+.adlink footer {
     padding: 30px 0;
 }
 
-.g-recaptcha {
+.adlink .g-recaptcha {
     display: inline-block;
 }

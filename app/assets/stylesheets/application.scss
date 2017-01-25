@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
+ *= require_directory .
  */
 
 @import "theme/css/lib/font-awesome/font-awesome.min.css";
@@ -18,20 +19,22 @@
 @import "theme/css/lib/bootstrap-sweetalert/sweetalert.css";
 @import "theme/css/separate/vendor/sweet-alert-animations.min.css";
 @import "theme/css/lib/animate/animate.css";
+@import "theme/css/lib/bootstrap-table/bootstrap-table.min.css";
+@import 'theme/css/lib/charts-c3js/c3.min.css';
 @import "theme/css/main.css";
 
 @media only screen and (min-width: 768px) {
-    .shortlink-form {
+    .userpanel .shortlink-form {
         max-width: 500px;
         padding-left: 15px;
     }
 
-    .shortlink-form .form-group {
+    .userpanel .shortlink-form .form-group {
         width: 50% !important;
         transition: width 0.3s ease-in-out;
     }
 
-    .shortlink-form .form-group.expand {
+    .userpanel .shortlink-form .form-group.expand {
         width: 100% !important;
         transition: width 0.5s ease-in-out;
     }

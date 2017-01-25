@@ -2,28 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import "theme/css/lib/bootstrap-table/bootstrap-table.min.css";
-
-.addthis_toolbox a {
+.links .addthis_toolbox a {
     margin-bottom: 0 !important;
 }
-#table-links tr .col {
+.links #table-links tr .col {
     display: inline-flex;
     padding: 0 5px;
 }
-#table-links tr td:last-child {
+.links #table-links tr td:last-child {
     width:1%;
     white-space:nowrap;
 }
 
-#table-links .link-tag {
+.links #table-links .link-tag {
     color: #d9534f;
     text-decoration: none;
     font-weight: bold;
     border-bottom: none;
 }
 
-#table-links .originalurl-tag {
+.links #table-links .originalurl-tag {
     color: lightslategray;
     font-style: italic;
     display: inline-block;
