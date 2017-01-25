@@ -3,7 +3,7 @@
 
 App.adlink = {
     init: function () {
-        startCountDown();
+        this.startCountDown();
         ahoy.trackAll();
     },
 
