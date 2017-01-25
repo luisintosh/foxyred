@@ -16,10 +16,9 @@
 
     <%= javascript_include_tag 'https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58786505bcb77a1a&async=1' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag params[:controller] %>
   </head>
 
-  <body class="with-side-menu">
+  <body class="with-side-menu userpanel <%= controller_name %> <%= action_name %>">
     <%= render 'layouts/header' %>
     <%= render 'layouts/sidebar' %>
     

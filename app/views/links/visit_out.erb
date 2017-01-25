@@ -6,26 +6,26 @@
                     <div class="card-block text-center">
                         <h4>Your link is almost ready</h4>
                         <p>
-                            <%= @ad1 %>
+                            <%= Ad.where(position: :visitout_ad1).sample %>
                         </p>
                         <p>
                             <div>Please wait</div>
                             <a href="<%= @link.url %>" target="_blank" id="link-out" class="btn btn-sm btn-secondary-outline disabled">...</i></a>
                         </p>
                         <p>
-                            <%= @ad2 %>
+                            <%= Ad.where(position: :visitout_ad2).sample %>
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-6 col-md-3 pull-md-6">
-                <%= @ad3 %>
+                <%= Ad.where(position: :visitout_ad3).sample %>
             </div>
             <div class="col-6 col-md-3 text-right">
-                <%= @ad4 %>
+                <%= Ad.where(position: :visitout_ad4).sample %>
             </div>
             <div class="col-12">
-                <%= @ad5 %>
+                <%= Ad.where(position: :visitout_ad5).sample %>
             </div>
         </div>
     </div>

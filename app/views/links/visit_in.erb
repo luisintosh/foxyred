@@ -6,27 +6,27 @@
                     <div class="card-block text-center">
                         <h4>Please check the captcha box to proceed to the destination page</h4>
                         <p>
-                            <%= @ad1 %>
+                            <%= Ad.where(position: :visitin_ad1).sample %>
                         </p>
                         <p>
-                            <%= form_tag("/go/#{@link.alias}", id: 'link-captcha') do %>
+                            <%= form_tag("/go/#{@link.alias}", id: 'adlink-captcha') do %>
                             <div class="text-center"><%= recaptcha_tags id: 'g-recaptcha', script: false %></div>
                             <% end %> 
                         </p>
                         <p>
-                            <%= @ad2 %>
+                            <%=Ad.where(position: :visitin_ad2).sample %>
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-6 col-md-3 pull-md-6">
-                <%= @ad3 %>
+                <%= Ad.where(position: :visitin_ad3).sample %>
             </div>
             <div class="col-6 col-md-3 text-right">
-                <%= @ad4 %>
+                <%= Ad.where(position: :visitin_ad4).sample %>
             </div>
             <div class="col-12">
-                <%= @ad5 %>
+                <%= Ad.where(position: :visitin_ad5).sample %>
             </div>
         </div>
     </div>
