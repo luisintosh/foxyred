@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get 'withdraw', to: 'withdraw#index', as: 'withdraw'
   
   # user administration
-  devise_for :users
+  devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_up: 'sign_up', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register' }
+
   # root
   root 'home#index'
 

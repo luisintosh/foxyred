@@ -25,15 +25,10 @@
       </ul>
     </li>
     <li class="gold with-sub">
-      <span>
-	                <i class="font-icon glyphicon glyphicon-cog"></i>
-	                <span class="lbl">Settings</span>
-      </span>
-      <ul>
-        <li><a href="#"><span class="lbl">Profile</span></a></li>
-        <li><a href="#"><span class="lbl">Change Password</span></a></li>
-        <li><a href="#"><span class="lbl">Help</span></a></li>
-      </ul>
+      <%= link_to controller: 'devise/registrations', action: 'edit' do %>
+        <i class="font-icon glyphicon glyphicon-user"></i>
+        <span class="lbl">Profile</span>
+      <% end %>
     </li>
     <li class="pink">
       <%= link_to withdraw_path do %>
