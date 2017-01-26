@@ -8,7 +8,7 @@ App.options = {
     },
 
     formSaveFunc: function() {
-        $('form').submit(function() {  
+        $(document).on('submit', 'form', function() {  
             //console.log('mandando...');
             var submitBtn = $(this).parent().find('.submitbtn');
             var defaultVal = submitBtn.html();
