@@ -1,4 +1,5 @@
 class PayoutRatesController < ApplicationController
+  before_action :admin_only
   before_action :set_payout_rate, only: [:show, :edit, :update, :destroy]
 
   # GET /payout_rates
@@ -70,5 +71,11 @@ class PayoutRatesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def payout_rate_params
       params.require(:payout_rate).permit(:country, :country_code, :earn)
+    end
+
+    def admin_only
+      unless current_user.admin?
+        redirect_to root_path, :alert => "Access denied."
+      end
     end
 end

@@ -1,4 +1,5 @@
 class OptionsController < ApplicationController
+  before_action :admin_only
   before_action :set_option, only: [:show, :edit, :update, :destroy]
 
   # GET /options
@@ -30,5 +31,11 @@ class OptionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def option_params
       params.require(:option).permit(:name, :value)
+    end
+
+    def admin_only
+      unless current_user.admin?
+        redirect_to root_path, :alert => "Access denied."
+      end
     end
 end

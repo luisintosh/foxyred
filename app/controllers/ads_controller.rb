@@ -1,4 +1,5 @@
 class AdsController < ApplicationController
+  before_action :admin_only
   before_action :set_ad, only: [:show, :edit, :update, :destroy]
 
   # GET /ads
@@ -70,5 +71,11 @@ class AdsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_params
       params.require(:ad).permit(:default, :position, :network, :code, :type, :price, :traffic_source, :countries, :start_date, :end_date, :weight)
+    end
+
+    def admin_only
+      unless current_user.admin?
+        redirect_to root_path, :alert => "Access denied."
+      end
     end
 end

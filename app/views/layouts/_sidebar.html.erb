@@ -32,6 +32,7 @@
       <% end %>
     </li>
   </ul>
+  <% if current_user.admin? %>
   <section>
     <header class="side-menu-title">Admin</header>
     <ul class="side-menu-list">
@@ -41,7 +42,11 @@
       <%= link_to options_path do %>
         <i class="tag-color pink"></i><span class="lbl">Options</span>
       <% end %>
+      <%= link_to payout_rates_path do %>
+        <i class="tag-color black"></i><span class="lbl">Payout rates</span>
+      <% end %>
     </ul>
   </section>
+  <% end %>
 </nav>
 <!--.side-menu-->

@@ -1,31 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Payout Rates</h1>
+<header class="section-header">
+  <h1>Payout Rates</h1>
+</header>
+<section class="card">
+  <div class="card-block">
+    <p>
+      <%= link_to 'New Payout Rate', new_payout_rate_path, class: 'btn btn-primary' %>
+    </p>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>Country code</th>
+          <th>Earn</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Country</th>
-      <th>Country code</th>
-      <th>Earn</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @payout_rates.each do |payout_rate| %>
-      <tr>
-        <td><%= payout_rate.country %></td>
-        <td><%= payout_rate.country_code %></td>
-        <td><%= payout_rate.earn %></td>
-        <td><%= link_to 'Show', payout_rate %></td>
-        <td><%= link_to 'Edit', edit_payout_rate_path(payout_rate) %></td>
-        <td><%= link_to 'Destroy', payout_rate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Payout Rate', new_payout_rate_path %>
+      <tbody>
+        <% @payout_rates.each do |payout_rate| %>
+          <tr>
+            <td><%= payout_rate.country %></td>
+            <td><%= payout_rate.country_code %></td>
+            <td><b><%= "#{Option.get(:currency_symbol)} #{payout_rate.earn} #{Option.get(:currency_code)}" %></b></td>
+            <td><%= link_to 'Show', payout_rate %></td>
+            <td><%= link_to 'Edit', edit_payout_rate_path(payout_rate) %></td>
+            <td><%= link_to 'Destroy', payout_rate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section><!--.box-typical-->
