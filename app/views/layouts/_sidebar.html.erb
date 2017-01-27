@@ -14,15 +14,10 @@
       <% end %>
     </li>
     <li class="purple with-sub">
-      <span>
-	                <i class="font-icon glyphicon glyphicon-flash"></i>
-	                <span class="lbl">Tools</span>
-      </span>
-      <ul>
-        <li><a href="#"><span class="lbl">Mass shrinker</span></a></li>
-        <li><a href="#"><span class="lbl">Quick Link</span></a></li>
-        <li><a href="#"><span class="lbl">Full Page Script</span></a></li>
-      </ul>
+      <%= link_to tools_path do %>
+        <i class="font-icon glyphicon glyphicon-flash"></i>
+	      <span class="lbl">Tools</span>
+      <% end %>
     </li>
     <li class="gold with-sub">
       <%= link_to controller: 'devise/registrations', action: 'edit' do %>

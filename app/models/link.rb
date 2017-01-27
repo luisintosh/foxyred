@@ -56,6 +56,18 @@ class Link < ApplicationRecord
     end
   end
 
+  # convert a list of urls into an array of ad links
+  def self.shrink_list_urls(list, user)
+    return unless (list && user)
+    links = []
+    list.split("\n").each do |line|
+      link = user.links.new url: line
+      links.push(link) if link.save
+    end
+
+    links
+  end
+
   protected
     def configure_link
       code = :random_code

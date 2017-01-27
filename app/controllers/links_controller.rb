@@ -3,6 +3,7 @@ class LinksController < ApplicationController
   before_action :set_link_by_alias, only: [:visit_in,:visit_out]
   skip_before_action :authenticate_user!, only: [:visit_in,:visit_out]
   layout :resolve_layout
+  helper_method :full_short_url
 
   # GET /links
   # GET /links.json
@@ -57,7 +58,6 @@ class LinksController < ApplicationController
     end
   end
 
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link
@@ -76,6 +76,11 @@ class LinksController < ApplicationController
         'application'
       end
     end
+
+    def full_short_url(link)
+      URI.join(root_url(only_path: false), link.alias).to_s
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params

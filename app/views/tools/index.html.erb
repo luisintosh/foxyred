@@ -1,0 +1,159 @@
+<header class="section-header">
+  <div class="tbl">
+    <div class="tbl-row">
+      <div class="tbl-cell">
+        <h2>My Tools</h2>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="tabs-section">
+  <div class="tabs-section-nav tabs-section-nav-icons">
+    <div class="tbl">
+      <ul class="nav" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" href="#tabs-1-tab-1" role="tab" data-toggle="tab" aria-expanded="true">
+            <span class="nav-link-in">
+              <i class="glyphicon glyphicon-list"></i>
+              Mass Shrinker
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#tabs-1-tab-2" role="tab" data-toggle="tab" aria-expanded="false">
+            <span class="nav-link-in">
+              <span class="glyphicon glyphicon-link"></span>
+              Quick Link
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#tabs-1-tab-3" role="tab" data-toggle="tab" aria-expanded="false">
+            <span class="nav-link-in">
+              <i class="glyphicon glyphicon-fullscreen"></i>
+              Full Page Script
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div><!--.tabs-section-nav-->
+
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade active in" id="tabs-1-tab-1" aria-expanded="true">
+      <div class="text-center">
+        <h4>Enter up to 20 URLs (one per line) to be shrunk and added to your account.</h4>
+        <p>
+            <b>Note:</b> The 'Mass Shrinker' can be disabled for your account if abused. Only create links that you will actually use.
+        </p>
+      </div>
+
+      <%= form_tag do %>
+        <div class="form-group">
+            <%= text_area_tag 'link_list', nil, rows: 10, class: 'form-control', placeholder: 'http://', required: true %>
+        </div>
+        <div class="actions text-right">
+            <button class="btn btn-lg btn-success">Convert</button>
+        </div>
+      <% end %>
+
+      <% if @links %>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3 push-md-3">
+                <div class="card">
+                    <div class="card-block" id="foxy-links">
+                        <h4 class="card-title">Foxy links</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <% @links.each do |link| %>
+                        <li class="list-group-item">
+                            <b><%= link_to full_short_url(link), full_short_url(link) %></b>
+                        </li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-3 push-md-3">
+                <div class="card" id="original-links">
+                    <div class="card-block">
+                        <h4 class="card-title">Original links</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <% @links.each do |link| %>
+                        <li class="list-group-item">
+                            <%= link.url %>
+                        </li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      <% end %>
+    </div><!--.tab-pane-->
+
+    <div role="tabpanel" class="tab-pane fade" id="tabs-1-tab-2">
+      <div class="text-center">
+        <h4>Get <b>foxy.red</b> links instantly</h4>
+        <p>
+            Just copy the link below to address bar into your web browser, change last part to destination link and press ENTER.<br>
+            <b>Foxy.red</b> will redirect you to your shortened link.
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-8 push-md-2">
+            <pre class="alert alert-info">
+    https://foxy.red/s/<%= current_user.referral_code %>?url=yourwebsite.com</pre>
+        </div>
+      </div>
+      <br><br>
+      <p class="text-center">
+        You can also use our simple API to shorten your link.<br>
+        The below link will generate a new shorten link and print out in a blank page, it is very easy to inject this API to your application.
+      </p>
+      <div class="row">
+        <div class="col-md-8 push-md-2">
+            <pre class="alert alert-info">
+    https://foxy.red/api/<%= current_user.referral_code %>?url=yourwebsite.com</pre>
+        </div>
+      </div>
+    </div><!--.tab-pane-->
+
+    <div role="tabpanel" class="tab-pane fade" id="tabs-1-tab-3">
+      <div class="text-center">
+        <h4>Automatic url shortening for websites</h4>
+        <p>
+            If you have a website with 100's or 1000's of links you want to change over to <b>foxy.red</b> then please use the script below.<br>
+            Simply copy-and-paste the code below on to your webpage or blog and the links will be updated automatically!.<br>
+            <b>You can add or remove any domains for the code that you use on your website.</b>
+        </p>
+      </div>
+      <div class="row">
+            <div class="col-md-8 push-md-2">
+<pre class="alert alert-info">
+    &lt;script type="text/javascript"&gt;
+        var foxy_token = '<%= current_user.referral_code %>';
+        var domains = ['mega.nz', 'mega.co.nz', 'mediafire.com', '4shared.com', 'depositfiles.org']; 
+    &lt;/script&gt;
+    &lt;script src="http://cdn.foxy.red/js/full-page-script.js"&gt;&lt;/script&gt;
+</pre>    
+            </div>
+        </div>
+        <hr>
+        <p class="text-center">
+            Or if you wish to change every link to <b>foxy.red</b> on your website (without stating exactly which domains) please use the following code.
+        </p>
+        <div class="row">
+            <div class="col-md-8 push-md-2">
+<pre class="alert alert-info">
+    &lt;script type="text/javascript"&gt;
+        var foxy_token = '<%= current_user.referral_code %>';
+        var exclude_domains = ['example.com', 'yoursite.com']; 
+    &lt;/script&gt;
+    &lt;script src="http://cdn.foxy.red/js/full-page-script.js"&gt;&lt;/script&gt;
+</pre>    
+            </div>
+        </div>
+    </div><!--.tab-pane-->
+  </div><!--.tab-content-->
+</section>
