@@ -90,7 +90,7 @@ App.dashboard = {
         this.chart = c3.generate({
             bindto: '#chart',
             data: {
-                url: '/dashboard/chart_data',
+                url: '/panel/dashboard/chart_data',
                 mimeType: 'json'
             },
             axis: {

@@ -46,7 +46,7 @@ App.userpanel = {
             ].join('');
 
             $.ajax({
-                url: '/links.json',
+                url: '/panel/links.json',
                 type: 'post',
                 data: {link: {url: linkurl}},
                 dataType: 'json',
