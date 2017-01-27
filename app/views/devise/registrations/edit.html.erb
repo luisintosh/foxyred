@@ -19,7 +19,7 @@
     </div>
     <div class="item">
       <div class="number">$<%= current_user.withdrawals.sum(:amount) %></div>
-      <div class="caption">Earnings</div>
+      <div class="caption">Collected</div>
     </div>
   </div>
 </section>
@@ -68,6 +68,24 @@
           <div class="form-group">
             <%= f.label :email, class:'form-label semibold' %>
             <%= f.email_field :email, class:'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <h3>Withdrawal</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :withdrawal_method, class:'form-label semibold' %>
+            <%= f.select :withdrawal_method, Withdrawal.wd_methods, {include_blank: true}, class:'form-control' %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :withdrawal_account, class:'form-label semibold' %>
+            <%= f.email_field :withdrawal_account, class:'form-control' %>
           </div>
         </div>
       </div>
