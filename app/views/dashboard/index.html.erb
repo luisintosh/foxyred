@@ -1,5 +1,5 @@
 <section class="row" id="datatabox">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="statistic-box red">
             <div>
                 <div class="number"><%= @views %></div>
@@ -9,20 +9,30 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="statistic-box red">
             <div>
-                <div class="number">$<%= @earnings.to_s %></div>
+                <div class="number">$<%= @ref_earnings.to_s %></div>
                 <div class="caption">
-                    <div>Earnings</div>
+                    <div>Referral Earnings</div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
+        <div class="statistic-box red">
+            <div>
+                <div class="number">$<%= @link_earnings.to_s %></div>
+                <div class="caption">
+                    <div>Link Earnings</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
         <div class="statistic-box green">
             <div>
-                <div class="number">$<%= (@earnings - @earnings_collected).to_s %></div>
+                <div class="number">$<%= @av_earnings.to_s %></div>
                 <div class="caption">
                     <div>Total Available Earnings</div>
                 </div>

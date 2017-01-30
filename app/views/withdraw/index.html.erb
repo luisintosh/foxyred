@@ -3,25 +3,61 @@
 </header>
 <section class="card">
   <div class="card-block">
-    <div class="row text-center earnings-data">
-        <div class="col-sm-6 b-r">
-            <h3 class="text-danger">$0</h3>
-            <h5 class="text-mutted">Available Earnings</h5>
+
+    <div class="row text-center">
+      <div class="col-sm-6 b-r">
+          <strong><h3 class="text-danger">$0</h3></strong>
+          <h5 class="text-mutted">Available Earnings</h5>
+      </div>
+      <div class="col-sm-6">
+          <strong><h3 class="text-danger">$0</h3></strong>
+          <h5 class="text-mutted">Last Pay Period</h5>
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <div class="col-sm-8 push-md-2 text-muted">
+        <p>
+            Your earnings will be automatically paid on <b>1st day and 15th day of each month</b> 
+            but only if your earnings have reached a total of <b>$5.00</b> or more for the previous period. 
+            Money generated between 1st - 15th will be paid on 1st of next month. Money generated between 
+            15th - 31st will be paid on 15th on next month. In order to receive the payment you must fill 
+            up all the required fields in the <b><%= link_to 'settings section', controller: 'devise/registrations', action: 'edit' %></b>.
+        </p>
+      </div>
+    </div>
+
+    <div class="row text-center bg-light">
+        <div class="col-sm-4">
+          <h3>Payment processor</h3>
+          <% if current_user.withdrawal_method %>
+          <h5 class="text-info"> <%= current_user.withdrawal_method %> </h5>
+          <% else %>
+          <h5 class="text-danger"><i class="fa fa-times"></i> Not Set</h5>
+          <% end %>
         </div>
-        <div class="col-sm-6">
-            <h3 class="text-danger">$0</h3>
-            <h5 class="text-mutted">Last Pay Period</h5>
+        <div class="col-sm-4">
+          <h3>Payment account</h3>
+          <% if current_user.withdrawal_account %>
+          <h5 class="text-info"> <%= current_user.withdrawal_account %> </h5>
+          <% else %>
+          <h5 class="text-danger"><i class="fa fa-times"></i> Not Set</h5>
+          <% end %>
         </div>
-        <div class="col-sm-12 text-muted">
-            <br>
-            <p>
-                Your earnings will be automatically paid on <b>1st day and 15th day of each month</b> but only if your earnings have reached a total of <b>$5.00</b> or more for the previous period. Money generated between 1st - 15th will be paid on 1st of next month. Money generated between 15th - 31st will be paid on 15th on next month. In order to receive the payment you must fill up all the required fields in the settings section.
-            </p>
-            <p>
-                 Feel free to contact us if you have pending payments: <b>p@foxy.red</b>
-            </p>
+        <div class="col-sm-4">
+          <h3>Next Payment date</h3>
+          <h5 class="text-success"><%= Withdrawal.next_pay_day.strftime("%B %d, %Y") %></h5>
         </div>
     </div>
+
+    <div class="row text-center">
+      <div class="col-sm-8 push-md-2 text-muted">
+        <p>
+              Feel free to contact us if you have pending payments: <b>p@foxy.red</b>
+        </p>
+      </div>
+    </div>
+
     <div id="toolbar-withdraw">
       <h2><b>Transaction History</b></h2>
     </div>
@@ -59,5 +95,12 @@
             <% end %>
           </tbody>
     </table>
+    <p>
+      <ul>
+        <li>- Pending: The payment is being checked by our team.</li>
+        <li>- Approved: The payment has been approved and is waiting to be sent.</li>
+        <li>- Complete: The payment has been successfully sent to your Paypal account.</li>
+      </ul>
+    </p>
   </div>
 </section><!--.box-typical-->

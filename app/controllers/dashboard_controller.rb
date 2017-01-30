@@ -1,8 +1,9 @@
 class DashboardController < ApplicationController
   def index
     @views = Link.where(user_id: current_user.id).sum(:hits)
-    @earnings = (current_user.balance.publisher_earnings + current_user.balance.referral_earnings)
-    @earnings_collected = (current_user.withdrawals.sum(:amount))
+    @link_earnings = current_user.withdrawals.sum(:publisher_earnings) + current_user.balance.publisher_earnings
+    @ref_earnings = current_user.withdrawals.sum(:referral_earnings) + current_user.balance.referral_earnings
+    @av_earnings = current_user.balance.publisher_earnings + current_user.balance.referral_earnings
 
     sort = params[:sort] || :id
     order = params[:order] || :desc
