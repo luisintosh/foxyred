@@ -1,5 +1,5 @@
 class Withdrawal < ApplicationRecord
-  enum status: [:pending, :approved, :complete]
+  enum status: [:pending, :approved, :complete, :canceled]
   belongs_to :user
 
   def self.wd_methods
