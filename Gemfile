@@ -60,3 +60,6 @@ gem "recaptcha", require: "recaptcha/rails"
 
 # User tracker
 gem 'ahoy_matey'
+
+# Schedule Cron Jobs
+gem 'whenever', require: false

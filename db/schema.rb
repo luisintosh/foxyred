@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170122012011) do
+ActiveRecord::Schema.define(version: 20170201181855) do
 
   create_table "ads", force: :cascade do |t|
     t.boolean  "default"
@@ -159,7 +159,7 @@ ActiveRecord::Schema.define(version: 20170122012011) do
   create_table "withdrawals", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "transaction_id"
-    t.string   "status"
+    t.integer  "status"
     t.string   "method"
     t.string   "account"
     t.decimal  "amount",             precision: 12, scale: 4

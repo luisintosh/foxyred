@@ -5,11 +5,24 @@ class Withdrawal < ApplicationRecord
   def self.wd_methods
     methods = []
     
-    methods.push :Paypal if Option.get(:enable_paypal)
-    methods.push :Payza if Option.get(:enable_payza)
-    methods.push :Coinbase if Option.get(:enable_coinbase)
+    methods.push 'Paypal' if Option.get(:enable_paypal)
+    methods.push 'Payza' if Option.get(:enable_payza)
+    methods.push 'Coinbase' if Option.get(:enable_coinbase)
 
     methods
+  end
+
+  def self.has_available_wd_method? (user)
+    available = Withdrawal.wd_methods.include? user.withdrawal_method
+    
+    # remove invalid wd
+    unless available
+      user.withdrawal_method = nil
+      user.withdrawal_account = nil
+      user.save
+    end
+    
+    available
   end
 
   def self.next_pay_day
