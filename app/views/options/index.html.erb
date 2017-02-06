@@ -64,6 +64,7 @@
     </div>
   </div><!--.tabs-section-nav-->
 
+  <!-- GENERAL -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade active in" id="tabs-1-tab-1" aria-expanded="true">
       <table class="table table-bordered table-hover">
@@ -74,6 +75,7 @@
         </tbody>
       </table>
     </div><!--.tab-pane-->
+    <!-- LINKS -->
     <div role="tabpanel" class="tab-pane fade" id="tabs-1-tab-2">
       <table class="table table-bordered table-hover">
         <tbody>
@@ -83,6 +85,7 @@
         </tbody>
       </table>
     </div><!--.tab-pane-->
+    <!-- INTEGRATION -->
     <div role="tabpanel" class="tab-pane fade" id="tabs-1-tab-3">
       <table class="table table-bordered table-hover">
         <tbody>
@@ -92,28 +95,31 @@
         </tbody>
       </table>
     </div><!--.tab-pane-->
+    <!-- PAYMENT -->
     <div role="tabpanel" class="tab-pane fade" id="tabs-1-tab-4">
       <table class="table table-bordered table-hover">
         <tbody>
-          <% @options[21..32].each do |option| %>
+          <% @options[21..29].each do |option| %>
             <%= render 'form', option: option %>
           <% end %>
         </tbody>
       </table>
     </div><!--.tab-pane-->
+    <!-- SOCIAL MEDIA -->
     <div role="tabpanel" class="tab-pane fade" id="tabs-1-tab-5">
       <table class="table table-bordered table-hover">
         <tbody>
-          <% @options[33..35].each do |option| %>
+          <% @options[30..32].each do |option| %>
             <%= render 'form', option: option %>
           <% end %>
         </tbody>
       </table>
     </div><!--.tab-pane-->
+    <!-- EMAILS -->
     <div role="tabpanel" class="tab-pane fade" id="tabs-1-tab-6">
       <table class="table table-bordered table-hover">
         <tbody>
-          <% @options[36..39].each do |option| %>
+          <% @options[33..36].each do |option| %>
             <%= render 'form', option: option %>
           <% end %>
         </tbody>

@@ -42,23 +42,20 @@ settings = [
     ['string', 'currency_code', 'USD'],
     ['string', 'currency_symbol', '$'],
     ['boolean', 'enable_paypal', 'true'],
-    ['email', 'paypal_email', ''],
-    ['boolean', 'enable_paypal_sandbox', 'false'],
     ['boolean', 'enable_payza', 'false'],
-    ['email', 'payza_email', ''],
-    ['boolean', 'enable_coinbase', 'false'],
-    ['string', 'coinbase_apikey', ''],
-    ['string', 'coinbase_apisecret', ''],
-    ['boolean', 'enable_coinbase_sandbox', 'false'],
+    ['boolean', 'enable_payoneer', 'false'],
+    ['boolean', 'enable_bitcoin', 'false'],
+    ['boolean', 'enable_webmoney', 'false'],
+    ['boolean', 'enable_skrill', 'false'],
     # Social media
     ['string', 'facebook_url', ''],
     ['string', 'twitter_url', ''],
     ['string', 'googleplus_url', ''],
     # Email
     ['email', 'admin_email', 'admin@foxy.red'],
-    ['email', 'from_email', 'no_reply@foxy.red'],
-    ['email', 'support_email', 'support@foxy.red'],
-    ['email', 'dcma_email', 'dcma@foxy.red']
+    ['email', 'payments_email', 'payments@foxy.red'],
+    ['email', 'notifications_email', 'no_reply@foxy.red'],
+    ['email', 'support_email', 'support@foxy.red']
 ]
 
 pages = [

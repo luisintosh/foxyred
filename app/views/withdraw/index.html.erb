@@ -53,7 +53,7 @@
     <div class="row text-center">
       <div class="col-sm-8 push-md-2 text-muted">
         <p>
-              Feel free to contact us if you have pending payments: <b>p@foxy.red</b>
+              Feel free to contact us if you have pending payments: <b>support@foxy.red</b>
         </p>
       </div>
     </div>
@@ -89,7 +89,7 @@
             <tr>
                 <td><%= w.transaction_id %></td>
                 <td><%= w.created_at.strftime('%Y-%m-%d') %></td>
-                <td><%= w.status %></td>
+                <td><%= w.status.capitalize %></td>
                 <td><%= w.amount %></td>
             </tr>
             <% end %>
@@ -99,7 +99,7 @@
       <ul>
         <li>- Pending: The payment is being checked by our team.</li>
         <li>- Approved: The payment has been approved and is waiting to be sent.</li>
-        <li>- Complete: The payment has been successfully sent to your Paypal account.</li>
+        <li>- Paid: The payment has been successfully sent to your account.</li>
       </ul>
     </p>
   </div>

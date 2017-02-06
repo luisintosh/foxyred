@@ -1,13 +1,16 @@
 class Withdrawal < ApplicationRecord
-  enum status: [:pending, :approved, :complete, :canceled]
+  enum status: [:pending, :approved, :paid, :canceled]
   belongs_to :user
 
   def self.wd_methods
     methods = []
     
-    methods.push 'Paypal' if Option.get(:enable_paypal)
-    methods.push 'Payza' if Option.get(:enable_payza)
-    methods.push 'Coinbase' if Option.get(:enable_coinbase)
+    methods.push 'paypal' if Option.get(:enable_paypal)
+    methods.push 'payza' if Option.get(:enable_payza)
+    methods.push 'payoneer' if Option.get(:enable_payoneer)
+    methods.push 'bitcoin' if Option.get(:enable_bitcoin)
+    methods.push 'webmoney' if Option.get(:enable_webmoney)
+    methods.push 'skrill' if Option.get(:enable_skrill)
 
     methods
   end

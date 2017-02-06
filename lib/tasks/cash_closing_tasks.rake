@@ -1,9 +1,9 @@
 
 desc 'Cash closing for user earnings'
 task cash_closing: :environment do
-    # Run every X days
+    # Run only on selected days
     payout_days = Option.get(:paydays).split(',').map(&:to_i)
-    return unless payout_days.include? Time.now.day
+    next unless payout_days.include? Time.now.day
     puts "Today is a cash closing day: #{Time.now.day}"
 
     min_withdrawal_amount = Option.get(:min_withdrawal_amount)
@@ -13,9 +13,9 @@ task cash_closing: :environment do
     available_balances.each do |b|
         ActiveRecord::Base.transaction do
             user = User.find b.user_id
-            # Return if method or account doesn't exist
+            # Skip if method or account doesn't exist
             next unless (user.withdrawal_method? || user.withdrawal_account?)
-            # Return if method isn't available to use
+            # Skip if method isn't available to use
             next unless Withdrawal.has_available_wd_method? user
 
             # Create new withdrawal
@@ -25,6 +25,7 @@ task cash_closing: :environment do
                                     amount: total_sum,
                                     method: user.withdrawal_method,
                                     account: user.withdrawal_account,
+                                    transaction_id: "#{Time.now.strftime('%y%m%d')}#{user.id}",
                                     status: :pending
             
             # Clean current balance
