@@ -4,9 +4,6 @@ App.init = function () {
         if ($('.'+key).length > 0) {
             App[key].init();
         }
-        if ($('.userpanel').length > 0) {
-            App.userpanel.init();
-        }
     }
 };
 
@@ -14,4 +11,7 @@ App.init = function () {
 //            TURBOLINKS START           //
 $(document).on('turbolinks:load', function() {
     App.init();
+})
+.ready(function(){
+    App.userpanel.start();
 });

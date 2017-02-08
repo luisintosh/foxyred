@@ -70,6 +70,7 @@ class Link < ApplicationRecord
 
   protected
     def configure_link
+      # Do alias key
       code = :random_code
       loop do
         code = SecureRandom.base58 Option.get :alias_length

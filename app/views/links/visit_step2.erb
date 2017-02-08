@@ -6,26 +6,29 @@
                     <div class="card-block text-center">
                         <h4>Your link is almost ready</h4>
                         <p>
-                            <%= Ad.where(position: :visitout_ad1).sample %>
+                            <%= Ad.get(:step2_banner_300x250) if Option.get(:enable_banner_ads) %>
                         </p>
                         <p>
                             <div>Please wait</div>
                             <a href="<%= @link.url %>" target="_blank" id="link-out" class="btn btn-sm btn-secondary-outline disabled">...</i></a>
                         </p>
                         <p>
-                            <%= Ad.where(position: :visitout_ad2).sample %>
+                            <%= Ad.get(:step2_banner_300x100) if Option.get(:enable_banner_ads) %>
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-6 col-md-3 pull-md-6">
-                <%= Ad.where(position: :visitout_ad3).sample %>
+                <%= Ad.get(:step2_banner_160x600) if Option.get(:enable_banner_ads) %>
             </div>
             <div class="col-6 col-md-3 text-right">
-                <%= Ad.where(position: :visitout_ad4).sample %>
+                <%= Ad.get :step2_banner_160x600 if Option.get(:enable_banner_ads) %>
             </div>
-            <div class="col-12">
-                <%= Ad.where(position: :visitout_ad5).sample %>
+            <div>
+                <%= Ad.get(:step2_mobile) if Option.get(:enable_mobile_ads) %>
+            </div>
+            <div>
+                <%= Ad.get(:step2_popup) if Option.get(:enable_popup_ads) %>
             </div>
         </div>
     </div>

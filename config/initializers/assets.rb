@@ -10,5 +10,3 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( theme/css/separate/pages/login.min.css )
-Rails.application.config.assets.precompile += %w( ads.scss home.scss links.scss options.css pages.scss payout_rates.scss referrals.scss adlink.scss dashboard.scss )
-Rails.application.config.assets.precompile += %w( ads.js home.js links.js options.js pages.js payout_rates.js referrals.js adlink.js dashboard.js )

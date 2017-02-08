@@ -24,9 +24,9 @@ settings = [
     ['integer', 'min_withdrawal_amount', '5'],
     ['integer', 'paid_views_per_day_for_campaign', '1'],
     # Links 
-    ['boolean', 'enable_interstitial_ads', 'true'],
     ['boolean', 'enable_banner_ads', 'true'],
     ['boolean', 'enable_popup_ads', 'true'],
+    ['boolean', 'enable_mobile_ads', 'true'],
     ['boolean', 'display_home_shortening_box', 'true'],
     ['integer', 'mass_shrinker_limit', '30'],
     ['string', 'disallowed_domains', 'localhost,127.0.0.1,0.0.0.0'],

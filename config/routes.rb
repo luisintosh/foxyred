@@ -17,10 +17,14 @@ Rails.application.routes.draw do
   # root
   root 'home#index'
 
+  # link api
+  get 's/:referral_code', to: 'links#quick_link'
+  get 'api/:referral_code', to: 'links#api_link'
+
   #show ad link
-  get '/:alias', to: 'links#visit_in', constraints: { alias: /\w+/ }
-  get 'go/:alias', to: 'links#visit_out', constraints: { alias: /\w+/ }
-  post 'go/:alias', to: 'links#visit_out', constraints: { alias: /\w+/ }
+  get '/:alias', to: 'links#visit_step1', constraints: { alias: /\w+/ }
+  get 'go/:alias', to: 'links#visit_step2', constraints: { alias: /\w+/ }
+  post 'go/:alias', to: 'links#visit_step2', constraints: { alias: /\w+/ }
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

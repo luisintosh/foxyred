@@ -103,7 +103,7 @@
       <div class="row">
         <div class="col-md-8 push-md-2">
             <pre class="alert alert-info">
-    https://foxy.red/s/<%= current_user.referral_code %>?url=yourwebsite.com</pre>
+    <%= "#{root_url(only_path: false)}s/#{current_user.referral_code}?url=http://yourwebsite.com" %></pre>
         </div>
       </div>
       <br><br>
@@ -114,7 +114,7 @@
       <div class="row">
         <div class="col-md-8 push-md-2">
             <pre class="alert alert-info">
-    https://foxy.red/api/<%= current_user.referral_code %>?url=yourwebsite.com</pre>
+    <%= "#{root_url(only_path: false)}api/#{current_user.referral_code}?url=http://yourwebsite.com" %></pre>
         </div>
       </div>
     </div><!--.tab-pane-->
@@ -135,7 +135,7 @@
         var foxy_token = '<%= current_user.referral_code %>';
         var domains = ['mega.nz', 'mega.co.nz', 'mediafire.com', '4shared.com', 'depositfiles.org']; 
     &lt;/script&gt;
-    &lt;script src="http://cdn.foxy.red/js/full-page-script.js"&gt;&lt;/script&gt;
+    &lt;script src="<%= "#{root_url(only_path: false)}js/full-page-script.js" %>"&gt;&lt;/script&gt;
 </pre>    
             </div>
         </div>
@@ -150,7 +150,7 @@
         var foxy_token = '<%= current_user.referral_code %>';
         var exclude_domains = ['example.com', 'yoursite.com']; 
     &lt;/script&gt;
-    &lt;script src="http://cdn.foxy.red/js/full-page-script.js"&gt;&lt;/script&gt;
+    &lt;script src="<%= "#{root_url(only_path: false)}js/full-page-script.js" %>"&gt;&lt;/script&gt;
 </pre>    
             </div>
         </div>
