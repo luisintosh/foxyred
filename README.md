@@ -1,9 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### A URL link shortener, make short links and earn the biggest money.
 
-Things you may want to cover:
+## Environment variables
+
+Configure the e-mail address 'no-reply@...'
+
+    ENV['MAILER_SENDER']
+
+Configure SMTP Mail server
+
+    config.action_mailer.smtp_settings = {
+	    address: ENV['SMTP_ADDRESS'],
+	    port: ENV['SMTP_PORT'],
+	    user_name: ENV['SMTP_USERNAME'],
+	    password: ENV['SMTP_PASSWORD'],
+	    authentication: :plain,
+	    enable_starttls_auto: true
+	  }
+
+
+----------
+
+**To do**
 
 * Ruby version
 
