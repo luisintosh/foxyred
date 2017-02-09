@@ -13,7 +13,7 @@ class LinksController < ApplicationController
     limit = params[:limit].to_i || 10
     limit = (limit <= 100) ? limit : 10
     @links = current_user.links.all
-                  .search(params[:search])
+                  .where('url LIKE ? OR alias LIKE ? OR created_at LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
                   .order(sort => order)
                   .offset(params[:offset])
                   .limit(limit)
