@@ -45,7 +45,6 @@ App.userpanel = {
 
             $('#table-links').bootstrapTable('refresh');
             $('#link_url').val('');
-            console.log(data);
             
         }).on('ajax:error', '#new_link', function (xhr, status, error) {
 

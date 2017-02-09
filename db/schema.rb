@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201181855) do
+ActiveRecord::Schema.define(version: 20170208190142) do
 
   create_table "ads", force: :cascade do |t|
     t.boolean  "default"
@@ -120,6 +120,10 @@ ActiveRecord::Schema.define(version: 20170201181855) do
     t.string   "tel"
     t.string   "withdrawal_method"
     t.string   "withdrawal_account"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["referral_code"], name: "index_users_on_referral_code", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

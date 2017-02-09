@@ -54,7 +54,7 @@ settings = [
     # Email
     ['email', 'admin_email', 'admin@foxy.red'],
     ['email', 'payments_email', 'payments@foxy.red'],
-    ['email', 'notifications_email', 'no_reply@foxy.red'],
+    ['email', 'notifications_email', 'no-reply@foxy.red'],
     ['email', 'support_email', 'support@foxy.red']
 ]
 

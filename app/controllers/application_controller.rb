@@ -25,4 +25,18 @@ class ApplicationController < ActionController::Base
       cookies.signed[:r] = { value: params[:r], expires: 1.day.from_now }
     end
   end
+
+  # Devise methods
+
+  def after_sign_in_path_for(resource)
+    dashboard_path
+  end
+
+  def after_sign_up_path_for(resource)
+    dashboard_path
+  end
+
+  def after_update_path_for(resource)
+    dashboard_path
+  end
 end

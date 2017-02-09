@@ -3,12 +3,15 @@ Rails.application.routes.draw do
   # user panel
   scope '/panel' do
     resources :ads, :links, :pages, :payout_rates, :options
-    get 'dashboard', to: 'dashboard#index', as: 'dashboard'
+    get 'dashboard', to: 'dashboard#index', as: :dashboard
     get 'dashboard/chart_data', to: 'dashboard#chart_data'
-    get 'referrals', to: 'referrals#index', as: 'referrals'
-    get 'withdraw', to: 'withdraw#index', as: 'withdraw'
-    get 'tools', to: 'tools#index', as: 'tools'
+    get 'referrals', to: 'referrals#index', as: :referrals
+    get 'withdraw', to: 'withdraw#index', as: :withdraw
+    get 'tools', to: 'tools#index', as: :tools
     post 'tools', to: 'tools#index'
+    as :user do
+      get 'user/profile', :to => 'devise/registrations#edit', :as => :user_root
+    end
   end
 
   # user administration
