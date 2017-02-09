@@ -31,7 +31,7 @@
         <div class="col-sm-4">
           <h3>Payment processor</h3>
           <% if current_user.withdrawal_method %>
-          <h5 class="text-info"> <%= current_user.withdrawal_method %> </h5>
+          <h5 class="text-success"> <%= current_user.withdrawal_method.capitalize %> </h5>
           <% else %>
           <h5 class="text-danger"><i class="fa fa-times"></i> Not Set</h5>
           <% end %>
@@ -39,7 +39,7 @@
         <div class="col-sm-4">
           <h3>Payment account</h3>
           <% if current_user.withdrawal_account %>
-          <h5 class="text-info"> <%= current_user.withdrawal_account %> </h5>
+          <h5 class="text-success"> <%= current_user.withdrawal_account.downcase %> </h5>
           <% else %>
           <h5 class="text-danger"><i class="fa fa-times"></i> Not Set</h5>
           <% end %>
