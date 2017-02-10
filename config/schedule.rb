@@ -18,3 +18,14 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+
+
+# Cronjob cash closing
+every 1.day, at: '1am' do
+    rake 'cash_closing'
+end
+
+# Cronjob payout notification
+every 1.day, at: '1am' do
+    rake 'payout_notification'
+end

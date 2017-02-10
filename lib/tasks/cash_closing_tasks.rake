@@ -9,6 +9,7 @@ task cash_closing: :environment do
     min_withdrawal_amount = Option.get(:min_withdrawal_amount)
     # Get user's balance with amounts greater than min withdrawal amount
     available_balances = Balance.where('publisher_earnings + referral_earnings >= ?', min_withdrawal_amount)
+    total_amount = 0.0
     
     available_balances.each do |b|
         ActiveRecord::Base.transaction do
@@ -34,8 +35,10 @@ task cash_closing: :environment do
             b.save   
 
             puts "User #{user.email} has generated #{amount}"
+            total_amount += amount
         end
     end
 
     # Send notification of cash closing
+    #NotificationMailer.cash_closing_email(total_amount, available_balances.count).deliver!
 end
