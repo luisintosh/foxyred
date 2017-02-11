@@ -3,13 +3,16 @@ class HomeController < ApplicationController
   layout 'home_layout'
 
   def index
+    @csymbol = Option.get :currency_symbol
+    @ccode = Option.get :currency_code
+    @min_pr = PayoutRate.where(country_code: :xx).last.earn.to_s
   end
 
   def rates
     @rates = PayoutRate.all
     @csymbol = Option.get :currency_symbol
     @ccode = Option.get :currency_code
-    @min_pr = PayoutRate.where(country_code: :xx).last
+    @min_pr = PayoutRate.where(country_code: :xx).last.earn.to_s
   end
 
   def terms

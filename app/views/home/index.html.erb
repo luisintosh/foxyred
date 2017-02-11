@@ -59,7 +59,7 @@
                 
                 <h3>How and how much do I earn?</h3>
                 <p class="pbtm">
-                    It's just 3 steps: create an account, create a link and post it - for every visit, you earn money. It's just that easy!. We pay for ALL legitimate visitor you bring to your links and payout at least $1.5 per 1000 views.
+                    It's just 3 steps: create an account, create a link and post it - for every visit, you earn money. It's just that easy!. We pay for ALL legitimate visitor you bring to your links and payout at least <%= "#{@csymbol} #{@min_pr} #{@ccode}" %> per 1000 views.
                 </p>
             </div>
         </div>
@@ -75,15 +75,15 @@
                 </p>
             </div>
             <div class="col-md-4">
-                <h4>20% REFFERAL BONUS</h4>
+                <h4><%= Option.get :referral_percentage %>% REFFERAL BONUS</h4>
                 <p>
-                    The foxy.red referral program is a great way to spread the word of this great service and to earn even more money with your short links! Refer friends and receive 20% of their earnings for life!
+                    The foxy.red referral program is a great way to spread the word of this great service and to earn even more money with your short links! Refer friends and receive <%= Option.get :referral_percentage %>% of their earnings for life!
                 </p>
             </div>
             <div class="col-md-4">
                 <h4>LOW MINIMUM PAYOUT</h4>
                 <p>
-                    You are required to earn only $5.00 before you will be paid. We can pay all users via PayPal, Payza, Skrill, Payoneer or Bitcoin (subject to availability).
+                    You are required to earn only <%= "#{@csymbol} #{Option.get :min_withdrawal_amount} #{@ccode}" %> before you will be paid. We can pay all users via PayPal, Payza, Skrill, Payoneer or Bitcoin (subject to availability).
                 </p>
             </div>
         </div>
