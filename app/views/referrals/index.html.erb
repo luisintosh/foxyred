@@ -3,6 +3,120 @@
 </header>
 <section class="card">
   <div class="card-block">
+    <h5>The foxy.red referral program is a great way to spread the word of this great service and to earn even more money with your short links! Refer friends and receive <%= Option.get :referral_percentage %>% of their earnings for life!</h5>
+    <pre class="alert alert-info">
+    <%= "#{root_url(only_path: false)}?r=#{current_user.referral_code}" %></pre>
+    <br><br>
+    
+    <h3>Referral banners</h3>
+    <section class="tabs-section">
+      <div class="tabs-section-nav tabs-section-nav-inline">
+        <ul class="nav" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" href="#tabs-4-tab-1" role="tab" data-toggle="tab">
+              720x90
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tabs-4-tab-2" role="tab" data-toggle="tab">
+              480x60
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tabs-4-tab-3" role="tab" data-toggle="tab">
+              336x280
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tabs-4-tab-4" role="tab" data-toggle="tab">
+              300x250
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tabs-4-tab-5" role="tab" data-toggle="tab">
+              250x250
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tabs-4-tab-6" role="tab" data-toggle="tab">
+              160x600
+            </a>
+          </li>
+        </ul>
+      </div><!--.tabs-section-nav-->
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="tabs-4-tab-1">
+          <p class="text-center">
+            <img src="<%= "#{root_url(only_path: false)}img/banners/720x90.jpg" %>">
+          </p>
+          <pre class="alert alert-info">
+    &lt;!-- Start of foxy.red banner code --&gt;
+    &lt;a href="<%= "#{root_url(only_path: false)}?r=#{current_user.referral_code}" %>"&gt;
+      &lt;img src="<%= "#{root_url(only_path: false)}img/banners/720x90.jpg" %>" title="Foxy.red - Make short links and earn money online" /&gt;
+    &lt;/a&gt;
+    &lt;!-- End of foxy.red banner code --&gt;</pre>
+        </div><!--.tab-pane-->
+        <div role="tabpanel" class="tab-pane fade" id="tabs-4-tab-2">
+          <p class="text-center">
+            <img src="<%= "#{root_url(only_path: false)}img/banners/480x60.jpg" %>">
+          </p>
+          <pre class="alert alert-info">
+    &lt;!-- Start of foxy.red banner code --&gt;
+    &lt;a href="<%= "#{root_url(only_path: false)}?r=#{current_user.referral_code}" %>"&gt;
+      &lt;img src="<%= "#{root_url(only_path: false)}img/banners/480x60.jpg" %>" title="Foxy.red - Make short links and earn money online" /&gt;
+    &lt;/a&gt;
+    &lt;!-- End of foxy.red banner code --&gt;</pre>
+        </div><!--.tab-pane-->
+        <div role="tabpanel" class="tab-pane fade" id="tabs-4-tab-3">
+          <p class="text-center">
+            <img src="<%= "#{root_url(only_path: false)}img/banners/336x280.jpg" %>">
+          </p>
+          <pre class="alert alert-info">
+    &lt;!-- Start of foxy.red banner code --&gt;
+    &lt;a href="<%= "#{root_url(only_path: false)}?r=#{current_user.referral_code}" %>"&gt;
+      &lt;img src="<%= "#{root_url(only_path: false)}img/banners/336x280.jpg" %>" title="Foxy.red - Make short links and earn money online" /&gt;
+    &lt;/a&gt;
+    &lt;!-- End of foxy.red banner code --&gt;</pre>
+        </div><!--.tab-pane-->
+        <div role="tabpanel" class="tab-pane fade" id="tabs-4-tab-4">
+          <p class="text-center">
+            <img src="<%= "#{root_url(only_path: false)}img/banners/300x250.jpg" %>">
+          </p>
+          <pre class="alert alert-info">
+    &lt;!-- Start of foxy.red banner code --&gt;
+    &lt;a href="<%= "#{root_url(only_path: false)}?r=#{current_user.referral_code}" %>"&gt;
+      &lt;img src="<%= "#{root_url(only_path: false)}img/banners/300x250.jpg" %>" title="Foxy.red - Make short links and earn money online" /&gt;
+    &lt;/a&gt;
+    &lt;!-- End of foxy.red banner code --&gt;</pre>
+        </div><!--.tab-pane-->
+        <div role="tabpanel" class="tab-pane fade" id="tabs-4-tab-5">
+          <p class="text-center">
+            <img src="<%= "#{root_url(only_path: false)}img/banners/250x250.jpg" %>">
+          </p>
+          <pre class="alert alert-info">
+    &lt;!-- Start of foxy.red banner code --&gt;
+    &lt;a href="<%= "#{root_url(only_path: false)}?r=#{current_user.referral_code}" %>"&gt;
+      &lt;img src="<%= "#{root_url(only_path: false)}img/banners/250x250.jpg" %>" title="Foxy.red - Make short links and earn money online" /&gt;
+    &lt;/a&gt;
+    &lt;!-- End of foxy.red banner code --&gt;</pre>
+        </div><!--.tab-pane-->
+        <div role="tabpanel" class="tab-pane fade" id="tabs-4-tab-6">
+          <p class="text-center">
+            <img src="<%= "#{root_url(only_path: false)}img/banners/160x600.jpg" %>">
+          </p>
+          <pre class="alert alert-info">
+    &lt;!-- Start of foxy.red banner code --&gt;
+    &lt;a href="<%= "#{root_url(only_path: false)}?r=#{current_user.referral_code}" %>"&gt;
+      &lt;img src="<%= "#{root_url(only_path: false)}img/banners/160x600.jpg" %>" title="Foxy.red - Make short links and earn money online" /&gt;
+    &lt;/a&gt;
+    &lt;!-- End of foxy.red banner code --&gt;</pre>
+        </div><!--.tab-pane-->
+      </div><!--.tab-content-->
+    </section>
+    <br><br>
+
+    <h3>Referred Users</h3>
     <table id="table-referrals"
           class="table table-striped table-bordered"
           data-toggle="table"
