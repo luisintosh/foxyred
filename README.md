@@ -8,16 +8,30 @@ Configure the e-mail address 'no-reply@...'
 
     ENV['MAILER_SENDER']
 
-Configure SMTP Mail server
 
-    config.action_mailer.smtp_settings = {
-	    address: ENV['SMTP_ADDRESS'],
-	    port: ENV['SMTP_PORT'],
-	    user_name: ENV['SMTP_USERNAME'],
-	    password: ENV['SMTP_PASSWORD'],
-	    authentication: :plain,
-	    enable_starttls_auto: true
-	  }
+Sample SMTP Mail settings
+
+	config.action_mailer.smtp_settings = {
+	address:              'smtp.gmail.com',
+	port:                 587,
+	domain:               'example.com',
+	user_name:            '<username>',
+	password:             '<password>',
+	authentication:       'plain',
+	enable_starttls_auto: true  }
+
+
+Configure SMTP Mail settings
+
+	config.action_mailer.smtp_settings = {
+		address: ENV['SMTP_ADDRESS'],
+		port: ENV['SMTP_PORT'],
+		domain: ENV['SMTP_DOMAIN']
+		user_name: ENV['SMTP_USERNAME'],
+		password: ENV['SMTP_PASSWORD'],
+		authentication: :plain,
+		enable_starttls_auto: true
+	}
 
 
 ----------
