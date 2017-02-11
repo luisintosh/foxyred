@@ -1,15 +1,28 @@
 <header class="section-header">
-  <h1>Users</h1>
+  <h1>Pending payments</h1>
 </header>
 <section class="card">
   <div class="card-block">
 
-    <%= link_to 'New User', new_user_path, class: 'btn btn-primary' %>
+    <div class="row text-center">
+      <div class="col-sm-4 b-r">
+          <strong><h3 class="text-danger"><%= "#{Option.get :currency_symbol} #{@total_earnings} #{Option.get :currency_code}" %></h3></strong>
+          <h5 class="text-mutted">Total user earnings</h5>
+      </div>
+      <div class="col-sm-4 b-r">
+          <strong><h3 class="text-danger"><%= "#{Option.get :currency_symbol} #{@next_payment} #{Option.get :currency_code}" %></h3></strong>
+          <h5 class="text-mutted">Total of pending payments</h5>
+      </div>
+      <div class="col-sm-4">
+          <strong><h3 class="text-danger"><%= Withdrawal.next_pay_day.strftime("%B %d, %Y") %></h3></strong>
+          <h5 class="text-mutted">Next Payment date</h5>
+      </div>
+    </div>
 
-    <table id="table-users"
+    <table id="table-users-pm"
           class="table table-striped table-bordered"
           data-toggle="table"
-          data-toolbar="#toolbar-users"
+          data-toolbar="#toolbar-users-pm"
           data-search="true"
           data-show-refresh="true"
           data-show-toggle="true"
@@ -33,6 +46,10 @@
                     data-sortable="true">Last Name</th>
               <th data-field="role" 
                     data-sortable="true">Role</th>
+              <th data-field="wd_method" 
+                    data-sortable="true">Withdrawal method</th>
+              <th data-field="wd_account" 
+                    data-sortable="true">Withdrawal account</th>
               <th data-field="created_at" 
                     data-sortable="true">Created on</th>
               <th data-field="paid" 
@@ -51,6 +68,8 @@
                 <td><%= user.first_name.humanize %></td>
                 <td><%= user.last_name.humanize %></td>
                 <td><%= user.role.humanize %></td>
+                <td><%= user.withdrawal_method.humanize %></td>
+                <td><%= user.withdrawal_account %></td>
                 <td><%= user.created_at %></td>
                 <td><%= user.withdrawals.where(status: :paid).sum(:amount) %></td>
                 <td><%= user.withdrawals.where(status: :pending).sum(:amount) %></td>
@@ -58,18 +77,10 @@
                 <td>
                   <%= link_to 'Show', user, class: 'btn btn-inline btn-sm btn-primary' %> 
                   <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-inline btn-sm btn-primary' %> 
-                  <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-inline btn-sm btn-danger' %></td>
             </tr>
             <% end %>
           </tbody>
     </table>
-    <p>
-      <ul>
-        <li>- Admin: The most powerful user.</li>
-        <li>- User: Regular user.</li>
-        <li>- Disabled: Ungrateful user.</li>
-      </ul>
-    </p>
   </div>
 </section><!--.box-typical-->
 

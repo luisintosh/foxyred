@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get 'withdraw', to: 'withdraw#index', as: :withdraw
     get 'tools', to: 'tools#index', as: :tools
     post 'tools', to: 'tools#index'
+    get 'payments', to: 'payments#index'
     as :user do
       get 'user/profile', :to => 'devise/registrations#edit', :as => :user_root
     end
