@@ -1,2 +1,121 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<section id="intro" class="no-pbtm">
+    <div class="container text-center">
+        <div class="row main-text">
+            <div class="col-md-12">
+                <h1>With foxy.red shorten URLs and earn money online!</h1>
+                <h3>Sharing links on the internet and get paid for every person who visits your URLs</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 main-action">
+                <%= link_to 'Get started', new_user_registration_path, class: 'btn btn-lg btn-danger' %>
+            </div>
+            <div class="col-md-12 col-lg-8 offset-lg-2">
+                <%= image_tag 'panel.png', class: 'img-fluid' %>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="how-it-works" class="bg-white no-pbtm">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm-4">
+                <p>
+                    <%= image_tag 'how_to/step1.png' %>
+                    <h3>Create an <b>account</b></h3>
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <p>
+                    <%= image_tag 'how_to/step2.png' %>
+                    <h3>Shorten your <b>link</b></h3>
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <p>
+                    <%= image_tag 'how_to/step3.png' %>
+                    <h3>Earn money <b>online</b></h3>
+                </p>
+            </div>
+        </div>
+        <hr>
+    </div>
+</section>
+<section id="why" class="bg-white">
+    <div class="container">
+        <h2 class="text-center">Earn money online with <b>foxy.red</b></h2>
+        <p class="text-center pbtm">The fastest and easiest way to monetize your traffic</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <%= image_tag 'share_anywhere.png', class: 'img-fluid' %>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <h3>Why join us?</h3>
+                <p class="pbtm">
+                    Foxy.red is a completely free tool where you can create short links, which apart from being free, you get paid! So, now you can make money from home, when managing and protecting your links.
+                </p>
+                
+                <h3>How and how much do I earn?</h3>
+                <p class="pbtm">
+                    It's just 3 steps: create an account, create a link and post it - for every visit, you earn money. It's just that easy!. We pay for ALL legitimate visitor you bring to your links and payout at least $1.5 per 1000 views.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="why-details" class="bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>DETAILED STATS</h4>
+                <p>
+                    Know your audience. Analyse in detail what brings you the most income and what strategies you should adapt.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h4>20% REFFERAL BONUS</h4>
+                <p>
+                    The foxy.red referral program is a great way to spread the word of this great service and to earn even more money with your short links! Refer friends and receive 20% of their earnings for life!
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h4>LOW MINIMUM PAYOUT</h4>
+                <p>
+                    You are required to earn only $5.00 before you will be paid. We can pay all users via PayPal, Payza, Skrill, Payoneer or Bitcoin (subject to availability).
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="payments" class="bg-white">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Payment <b>methods</b></h2>
+                <p class="text-muted">(Subject to availability)</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 item">
+                <%= image_tag 'payments/paypal.png', class: 'img-fluid' %>
+            </div>
+            <div class="col-md-2 item">
+                <%= image_tag 'payments/payza.png', class: 'img-fluid' %>
+            </div>
+            <div class="col-md-2 item">
+                <%= image_tag 'payments/skrill.png', class: 'img-fluid' %>
+            </div>
+            <div class="col-md-2 item">
+                <%= image_tag 'payments/payoneer.png', class: 'img-fluid' %>
+            </div>
+            <div class="col-md-2 item">
+                <%= image_tag 'payments/bitcoin.png', class: 'img-fluid' %>
+            </div>
+            <div class="col-md-2 item">
+                <%= image_tag 'payments/coins.png', class: 'img-fluid' %>
+            </div>
+        </div>
+    </div>
+</section>

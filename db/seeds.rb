@@ -14,7 +14,7 @@ users = [
 
 settings = [
     # General
-    ['string', 'site_name', 'Foxy.red - Shorten URLs and earn money'],
+    ['string', 'site_name', 'Foxy.red - Shorten URLs and earn money online!'],
     ['string', 'site_description', 'Earn money for each visitor to your shortened links with foxy.red! We pay for each visit to your short link.'],
     ['string', 'default_language', 'en'],
     ['string', 'site_languages', 'en'],

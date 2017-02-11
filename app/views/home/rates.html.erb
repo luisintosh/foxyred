@@ -1,0 +1,46 @@
+<section id="intro">
+    <div class="container text-center">
+        <div class="row main-text">
+            <div class="col-md-12">
+                <h1>Payout rates</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="payout-rates" class="bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <p class="text-center">
+                    We pay for <span class="text-danger">ALL</span> legitimate visitor you bring to your links and payout <span class="text-danger">at least <%=  "#{@csymbol} #{@min_pr.earn.to_s} #{@ccode}" %></span> per 1000 views.
+                    Multiple views from the same viewer are <span class="text-danger">also counted</span> thus you will be benefiting from all your traffic.
+                </p>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Country</th>
+                            <th>EARN per 1000 VIEWS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @rates.each do |r| %>
+                        <tr>
+                            <td></td>
+                            <td><%= r.country.humanize %></td>
+                            <td><%= "#{@csymbol} #{r.earn.to_s} #{@ccode}" %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="join-us" class="bg-white">
+    <div class="container text-center">
+        <h4>Join us today and start earning now!</h4>
+        <p><%= link_to 'Sign up for Free', new_user_registration_path, class: 'btn btn-lg btn-danger-outline' %></p>
+    </div>
+</section>

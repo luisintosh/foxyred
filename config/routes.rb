@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   # root
   root 'home#index'
+  get '/rates', to: 'home#rates', as: :rates
+  get '/terms', to: 'home#terms', as: :terms
 
   # link api
   get 's/:referral_code', to: 'links#quick_link'

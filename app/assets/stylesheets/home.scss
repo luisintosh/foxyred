@@ -1,3 +1,99 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.home {
+
+    .no-pbtm {
+        padding-bottom: 0;
+    }
+
+    .pbtm {
+        padding-bottom: 50px;
+    }
+
+    .bg-white {
+        background: white;
+    }
+
+    .bg-gray {
+        background: #f5f5f5;
+    }
+
+    .c-red {
+        color: #fa424a;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .site-header .site-header-collapsed .site-header-collapsed-in {
+        margin: 0;
+    }
+
+    h1 {
+        font-weight: bold;
+    }
+
+    nav.menu {
+        text-align: right;
+
+        ul {
+            display: inline-block;
+        }
+    }
+
+    section {
+        padding: 90px 0;
+    }
+    
+    #intro {
+        background: url('../img/herobg.jpg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+        .container {
+            margin-top: 90px;
+        }
+        .main-action {
+            margin: 50px 0;
+        }
+        .main-text {
+            background: #f55075;
+            padding: 20px;
+        }
+
+        h1, h3 {
+            color: white;
+        }
+    }
+
+    #why-details {
+        h4 {
+            font-weight: bold;
+            text-align: center;
+        }
+        p {
+            text-align: justify;
+        }
+    }
+
+    #payments {
+        .item {
+            padding: 30px;
+        }
+    }
+
+    footer {
+        padding: 30px 0;
+        background: #1e1e1e;
+        color: #b3b3b3;
+
+        a {
+           color: #b3b3b3; 
+        }
+    }
+}
