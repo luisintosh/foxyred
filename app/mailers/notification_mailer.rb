@@ -18,4 +18,8 @@ class NotificationMailer < ApplicationMailer
         now = Time.now.strftime('%Y-%m-%d')
         mail(to: @payments_email, subject: "Payout day! - Amount: #{@total_amount}, #{now}")
     end
+
+    def disabled_user_email(user)
+        mail(to: user.email, subject: 'Sorry, your user account has been disabled')
+    end
 end

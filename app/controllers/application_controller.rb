@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
+  before_action :check_user_status
   before_action :configure_permitted_params, if: :devise_controller?
   before_action :configure_referral_cookie, if: :devise_controller? || :home_controller?
   layout :layout_by_resource # set devise user layout for unsigned users
@@ -17,6 +18,13 @@ class ApplicationController < ActionController::Base
       'devise_layout'
     else
       'application'
+    end
+  end
+
+  # Deny access to disabled users
+  def check_user_status
+    if user_signed_in? && current_user.disabled?
+      redirect_to signout_path
     end
   end
 

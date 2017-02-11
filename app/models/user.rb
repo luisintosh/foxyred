@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Active Record Enum for roles
   # http://api.rubyonrails.org/classes/ActiveRecord/Enum.html
-  enum role: [:user, :admin]
+  enum role: [:user, :admin, :disabled]
   after_initialize :create_balance, :if => :new_record?
   before_save :configure_user, :if => :new_record?
 
