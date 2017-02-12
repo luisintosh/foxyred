@@ -84,7 +84,7 @@ payout_rates = [
 ]
 
 users.each do |a, b, c, d, e, f, g, h|
-    User.create(email: a, password: b, password_confirmation: c, role: d, first_name: e, last_name: f, address: g, referral_code: h)
+    User.create(email: a, password: b, password_confirmation: c, role: d, first_name: e, last_name: f, address: g, referral_code: h, confirmed_at: DateTime.now)
 end
 
 settings.each do |t, n, v|
