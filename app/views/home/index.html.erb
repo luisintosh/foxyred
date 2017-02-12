@@ -11,7 +11,7 @@
                 <%= link_to 'Get started', new_user_registration_path, class: 'btn btn-lg btn-danger' %>
             </div>
             <div class="col-md-12 col-lg-8 offset-lg-2">
-                <%= image_tag 'panel.png', class: 'img-fluid' %>
+                <%= image_tag 'panel.png', class: 'img-fluid', alt: 'Foxy.red panel' %>
             </div>
         </div>
     </div>
@@ -61,6 +61,18 @@
                 <p class="pbtm">
                     It's just 3 steps: create an account, create a link and post it - for every visit, you earn money. It's just that easy!. We pay for ALL legitimate visitor you bring to your links and payout at least <%= "#{@csymbol} #{@min_pr} #{@ccode}" %> per 1000 views.
                 </p>
+                <div class="hidden">
+                    <div itemscope itemtype="http://schema.org/SoftwareApplication">
+                        <span itemprop="name">Foxy.red</span><br>
+                        <span itemprop="applicationCategory">Business</span><br>
+                        Requires <span itemprop="operatingSystem">Windows, Mac, Linux, Android and IOS</span><br>
+                        <img itemprop="image" src="<%= "#{root_url}img/cover.jpg" %>" width="100px"/><br>
+                        <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                            Rating <span itemprop="ratingValue">5</span> 
+                            (<span itemprop="ratingCount">88566 ratings</span>)
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

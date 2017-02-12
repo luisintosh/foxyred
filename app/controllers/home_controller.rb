@@ -3,12 +3,14 @@ class HomeController < ApplicationController
   layout 'home_layout'
 
   def index
+    @page_title = Option.get :site_name
     @csymbol = Option.get :currency_symbol
     @ccode = Option.get :currency_code
     @min_pr = PayoutRate.where(country_code: :xx).last.earn.to_s
   end
 
   def rates
+    @page_title = "Payout rates | #{Option.get :site_name}"
     @rates = PayoutRate.all
     @csymbol = Option.get :currency_symbol
     @ccode = Option.get :currency_code

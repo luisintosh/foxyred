@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>Link - Foxy.red</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Link - <%= Option.get :site_name %></title>
+    <meta name="description" content="<%= Option.get :site_description %>">
+    <meta name="robots" content="noindex">
     <%= csrf_meta_tags %>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -20,15 +22,15 @@
   <body class="adlink">
     <header class="site-header">
         <div class="container">
-            <a href="#" class="site-logo">
+            <%= link_to root_url, class:'site-logo' do %>
                 <%= image_tag 'foxyred.png', class: 'hidden-md-down' %>
                 <%= image_tag 'foxyred-mob.png', class: 'hidden-lg-up' %>
-            </a>
+            <% end %>
             <div class="site-header-content">
                 <div class="site-header-content-in">
                     <div class="site-header-shown">
                         <%= link_to 'Home', {controller: 'home', action: 'index'}, class: 'btn btn-inline btn-secondary-outline' %>
-                        <%= link_to 'Payout Rates', payout_rates_path, class: 'btn btn-inline btn-danger' %>
+                        <%= link_to 'Payout Rates', rates_path, class: 'btn btn-inline btn-danger' %>
                     </div><!--.site-header-shown-->
                     <!--.site-header-collapsed-->
                 </div><!--site-header-content-in-->
@@ -76,13 +78,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    © 2017. URL shorten service by <%= link_to 'Foxy.red', root_path %>.
+                    <%= "© #{Time.now.year}. URL shortener service by" %> <%= link_to 'Foxy.red', root_path %>.
                 </div>
                 <div class="col-sm-6 text-right">
-                    Terms
+                    <% link_to 'Terms of use', terms_path %>
                 </div>
             </div>
         </div>
     </footer>
+    <%= render 'layouts/analytics' %>
   </body>
 </html>
