@@ -63,3 +63,6 @@ gem 'ahoy_matey'
 
 # Schedule Cron Jobs
 gem 'whenever', require: false
+
+# Postgresql
+gem 'pg'
