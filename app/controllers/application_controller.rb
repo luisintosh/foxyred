@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :check_user_status
   before_action :configure_permitted_params, if: :devise_controller?
   before_action :configure_referral_cookie, if: :devise_controller? || :home_controller?
+  before_action :check_captcha_devise, only: [:create], if: :devise_controller?
   layout :layout_by_resource # set devise user layout for unsigned users
 
   protected
@@ -32,6 +33,13 @@ class ApplicationController < ActionController::Base
     if params[:r]
       cookies.signed[:r] = { value: params[:r], expires: 1.day.from_now }
     end
+  end
+
+  def check_captcha_devise
+    unless verify_recaptcha && !user_signed_in?
+      self.resource = resource_class.new sign_up_params
+      respond_with_navigational(resource) { render :new }
+    end 
   end
 
   # Devise methods
