@@ -3,7 +3,7 @@ class CreateWithdrawals < ActiveRecord::Migration[5.0]
     create_table :withdrawals do |t|
       t.references :user, foreign_key: true
       t.string :transaction_id
-      t.string :status
+      t.integer :status
       t.string :method
       t.string :account
       t.decimal :amount, precision: 12, scale: 4

@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170208190142) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "ads", force: :cascade do |t|
     t.boolean  "default"
     t.string   "position"
@@ -34,9 +37,9 @@ ActiveRecord::Schema.define(version: 20170208190142) do
     t.string   "name"
     t.text     "properties"
     t.datetime "time"
-    t.index ["name", "time"], name: "index_ahoy_events_on_name_and_time"
-    t.index ["user_id", "name"], name: "index_ahoy_events_on_user_id_and_name"
-    t.index ["visit_id", "name"], name: "index_ahoy_events_on_visit_id_and_name"
+    t.index ["name", "time"], name: "index_ahoy_events_on_name_and_time", using: :btree
+    t.index ["user_id", "name"], name: "index_ahoy_events_on_user_id_and_name", using: :btree
+    t.index ["visit_id", "name"], name: "index_ahoy_events_on_visit_id_and_name", using: :btree
   end
 
   create_table "balances", force: :cascade do |t|
@@ -45,7 +48,7 @@ ActiveRecord::Schema.define(version: 20170208190142) do
     t.decimal  "referral_earnings",  precision: 12, scale: 4, default: "0.0", null: false
     t.datetime "created_at",                                                  null: false
     t.datetime "updated_at",                                                  null: false
-    t.index ["user_id"], name: "index_balances_on_user_id"
+    t.index ["user_id"], name: "index_balances_on_user_id", using: :btree
   end
 
   create_table "links", force: :cascade do |t|
@@ -57,8 +60,8 @@ ActiveRecord::Schema.define(version: 20170208190142) do
     t.integer  "real_hits",  default: 0, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.index ["alias"], name: "index_links_on_alias", unique: true
-    t.index ["user_id"], name: "index_links_on_user_id"
+    t.index ["alias"], name: "index_links_on_alias", unique: true, using: :btree
+    t.index ["user_id"], name: "index_links_on_user_id", using: :btree
   end
 
   create_table "options", force: :cascade do |t|
@@ -95,7 +98,7 @@ ActiveRecord::Schema.define(version: 20170208190142) do
     t.decimal  "publisher_earn",  precision: 11, scale: 4, default: "0.0", null: false
     t.datetime "created_at",                                               null: false
     t.datetime "updated_at",                                               null: false
-    t.index ["link_id"], name: "index_statistics_on_link_id"
+    t.index ["link_id"], name: "index_statistics_on_link_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -123,10 +126,10 @@ ActiveRecord::Schema.define(version: 20170208190142) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["referral_code"], name: "index_users_on_referral_code", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["referral_code"], name: "index_users_on_referral_code", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "visits", force: :cascade do |t|
@@ -156,8 +159,8 @@ ActiveRecord::Schema.define(version: 20170208190142) do
     t.string   "utm_content"
     t.string   "utm_campaign"
     t.datetime "started_at"
-    t.index ["user_id"], name: "index_visits_on_user_id"
-    t.index ["visit_token"], name: "index_visits_on_visit_token", unique: true
+    t.index ["user_id"], name: "index_visits_on_user_id", using: :btree
+    t.index ["visit_token"], name: "index_visits_on_visit_token", unique: true, using: :btree
   end
 
   create_table "withdrawals", force: :cascade do |t|
@@ -171,7 +174,11 @@ ActiveRecord::Schema.define(version: 20170208190142) do
     t.decimal  "publisher_earnings", precision: 12, scale: 4
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
-    t.index ["user_id"], name: "index_withdrawals_on_user_id"
+    t.index ["user_id"], name: "index_withdrawals_on_user_id", using: :btree
   end
 
+  add_foreign_key "balances", "users"
+  add_foreign_key "links", "users"
+  add_foreign_key "statistics", "links"
+  add_foreign_key "withdrawals", "users"
 end
