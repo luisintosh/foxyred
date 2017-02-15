@@ -171,6 +171,14 @@ Type the following command to run migrations. You can run every bundle or rake c
 
 ## Finish Setup
 
-Open a browser and go to your droplet ip. Then click on 'Finish Setup' button.
+Open a browser and go to your droplet ip. Then click on **Hostname** field and change for current domain name **foxy.red**, later check the option 'Use virtualhost naming for apps' and by last push **Finish Setup** button.
 
 ![enter image description here](http://i.imgur.com/hLDzcKV.jpg)
+
+### Domain Configuration
+
+Check out the following article for detailed instructions on [how to set up your domain name](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean) to point to your new Rails app running on Dokku.
+
+Now that you have your droplet, domain name and app ready to go, point the dokku app to root domain name of the dokku server.
+
+    $ dokku domains:add foxyred foxy.red
