@@ -189,3 +189,22 @@ Now that you have your droplet, domain name and app ready to go, point the dokku
     $ dokku domains:add foxyred foxy.red
 
 Reference: [http://dokku.viewdocs.io/dokku/configuration/domains/](http://dokku.viewdocs.io/dokku/configuration/domains/)
+
+
+### Set up a TLS/SSL certificate
+
+Install dokku-letsencrypt 
+
+	$ dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
+
+Setup email
+
+	$ dokku config:set --no-restart foxyred DOKKU_LETSENCRYPT_EMAIL=admin@foxy.red
+
+Install certificate
+
+	$ dokku letsencrypt foxyred
+
+That's all!
+
+Reference: [https://github.com/dokku/dokku-letsencrypt](https://github.com/dokku/dokku-letsencrypt)
