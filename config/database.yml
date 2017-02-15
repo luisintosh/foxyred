@@ -18,5 +18,4 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: foxyred
-  password: <%= ENV['FOXYRED_DATABASE_PASSWORD'] %>
+  url: <%= ENV['POSTGRESQL_URL'] %>

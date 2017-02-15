@@ -1,0 +1,13 @@
+{
+  "name": "foxyred",
+  "description": "Shorten URLs",
+  "keywords": [
+    "dokku",
+    "rails"
+  ],
+  "scripts": {
+    "dokku": {
+      "postdeploy": "bundle exec rake db:migrate && bundle exec rake db:seed && bundle exec whenever"
+    }
+  }
+}

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # configuring pre-flight checks
+  get '/check.txt', to: proc {[200, {}, ['it_works']]}
 
   # user panel
   scope '/panel' do
