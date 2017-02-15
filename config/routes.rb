@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   # user administration
-  devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_up: 'sign_up', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register' }
+  devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_up: 'sign_up', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register' }, controllers: { registrations: 'registrations' }
   devise_scope :user do
     get '/signout', to: 'devise/sessions#destroy', as: :signout
   end
