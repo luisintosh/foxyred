@@ -54,6 +54,7 @@ Running the following command you can see a list of environment vars for your ap
 
 	$ dokku config foxyred
 
+Reference: [https://github.com/dokku/dokku-postgres](https://github.com/dokku/dokku-postgres)
 
 ### Set your environment variables
 
@@ -65,6 +66,8 @@ The **config** plugin provides the following commands to manage your variables:
     config:get (<app>|--global) KEY                           Display a global or app-specific config value
     config:set (<app>|--global) KEY1=VALUE1 [KEY2=VALUE2 ...] Set one or more config vars
     config:unset (<app>|--global) KEY1 [KEY2 ...]             Unset one or more config vars
+
+Reference: [http://dokku.viewdocs.io/dokku/configuration/environment-variables/](http://dokku.viewdocs.io/dokku/configuration/environment-variables/)
 
 #### Environment variables that must be setted
 
@@ -121,6 +124,8 @@ This is the way in Dokku to setup zero downtime deployments. It makes sure that 
 Now, we need to create a custom route in our **config/routes.rb** file that handles requests to the **/check.txt** endpoint. Add the following route, which will return the **it_works** text that our CHECKS file is expecting:
 
 	get '/check.txt', to: proc {[200, {}, ['it_works']]}
+
+Reference: [http://dokku.viewdocs.io/dokku/deployment/zero-downtime-deploys/](http://dokku.viewdocs.io/dokku/deployment/zero-downtime-deploys/)
 
 #### .env
 This prevents that Dokku uses the Dockerfile that we set for the development environment.
@@ -182,3 +187,5 @@ Check out the following article for detailed instructions on [how to set up your
 Now that you have your droplet, domain name and app ready to go, point the dokku app to root domain name of the dokku server.
 
     $ dokku domains:add foxyred foxy.red
+
+Reference: [http://dokku.viewdocs.io/dokku/configuration/domains/](http://dokku.viewdocs.io/dokku/configuration/domains/)
