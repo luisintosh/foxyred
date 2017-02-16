@@ -11,5 +11,5 @@ task payout_notification: :environment do
     total_users = available_wds.count
 
     # Send notification
-    NotificationMailer.payout_day_email(total_amount, total_users).deliver!
+    NotificationMailer.payout_day_email(total_amount, total_users).deliver_now
 end

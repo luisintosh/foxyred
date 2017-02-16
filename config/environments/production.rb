@@ -88,12 +88,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => ENV['DOKKU_DOMAIN'] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: ENV['SMTP_ADDRESS'],
-    port: ENV['SMTP_PORT'],
-    domain: ENV['DOKKU_DOMAIN'],
-    user_name: ENV['SMTP_USERNAME'],
-    password: ENV['SMTP_PASSWORD'],
-    authentication: :plain,
-    enable_starttls_auto: true
+    address:              ENV['SMTP_ADDRESS'],
+    port:                 587,
+    domain:               ENV['DOKKU_DOMAIN'],
+    user_name:            ENV['SMTP_USERNAME'],
+    password:             ENV['SMTP_PASSWORD'],
+    authentication:       'plain',
+    enable_starttls_auto: true  
   }
+  config.action_mailer.default_options = { from: "Foxy.red <#{ENV['SMTP_USERNAME'] || 'no-reply@foxy-dev.red'}>" }
 end

@@ -71,7 +71,7 @@ Reference: [http://dokku.viewdocs.io/dokku/configuration/environment-variables/]
 
 #### Environment variables that must be setted
 
-    dokku config:set foxyred MAILER_SENDER='no-reply@foxy.red' SMTP_ADDRESS='smtp .mailgun.org' SMTP_PORT='587' SMTP_DOMAIN='smtp.mailgun.org' SMTP_USERNAME='no-reply@foxy.red' SMTP_PASSWORD='xxxxxxxxxxxxx'
+    dokku config:set foxyred MAILER_SENDER='no-reply@foxy.red' DOKKU_DOMAIN='foxy.red' SMTP_ADDRESS='smtp.mailgun.org' SMTP_USERNAME='no-reply@foxy.red' SMTP_PASSWORD='xxxxxxxxxxxxxx'
 
 ## Deploy the application
 

@@ -12,7 +12,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = ENV['MAILER_SENDER'] || 'no-reply@localhost.com'
+  config.mailer_sender = "Foxy.red <#{ENV['SMTP_USERNAME'] || 'no-reply@foxy-dev.red'}>"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

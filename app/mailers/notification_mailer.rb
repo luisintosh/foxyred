@@ -1,5 +1,4 @@
 class NotificationMailer < ApplicationMailer
-    default from: ENV['MAILER_SENDER'] || 'no-reply@localhost.com'
     layout 'mailer'
 
     def cash_closing_email(total_amount, total_users)
