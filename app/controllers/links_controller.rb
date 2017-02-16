@@ -48,6 +48,9 @@ class LinksController < ApplicationController
 
   # GET /[A-Za-z0-9]
   def visit_step1
+    @csymbol = Option.get :currency_symbol
+    @ccode = Option.get :currency_code
+    @min_pr = PayoutRate.where(country_code: :xx).last.earn.to_s
     @link.real_hits = (@link.real_hits).to_i + 1
     @link.save
   end
