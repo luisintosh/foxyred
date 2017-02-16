@@ -105,8 +105,10 @@
                     <a href="#">Privacy police</a> |
                     <%= link_to 'Terms of use', terms_path %>
                 </div>
-                <div class="col-sm-4 text-center">
-
+                <div class="col-sm-4 text-center socialnetworks">
+                    <%= link_to Option.get(:facebook_url), target: '_blank' do %><i class="fa fa-facebook"></i><% end %>
+                    <%= link_to Option.get(:twitter_url), target: '_blank' do %><i class="fa fa-twitter"></i><% end %>
+                    <%= link_to Option.get(:googleplus_url), target: '_blank' do %><i class="fa fa-google-plus"></i><% end %>
                 </div>
                 <div class="col-sm-4 text-right">
                     <%= "© #{Time.now.year}. URL shortener service by" %> <%= link_to 'Foxy.red', root_path %>.
