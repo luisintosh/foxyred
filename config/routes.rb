@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get 'api/:referral_code', to: 'links#api_link'
 
   #show ad link
+  get '/disable-adblock', to: 'home#disable_adblock', as: :disable_adblock
   get '/:alias', to: 'links#visit_step1', constraints: { alias: /\w+/ }
   get 'go/:alias', to: 'links#visit_step2', constraints: { alias: /\w+/ }
   post 'go/:alias', to: 'links#visit_step2', constraints: { alias: /\w+/ }

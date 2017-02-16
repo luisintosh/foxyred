@@ -1,10 +1,10 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-App.adlink = {
+App.shortestlink = {
     init: function () {
-        this.startCountDown();
         ahoy.trackAll();
+        this.startCountDown();
     },
 
     startCountDown: function () {
@@ -22,8 +22,7 @@ App.adlink = {
         myCounter.start();
     }
 };
-
-   
+ 
 // functions for first step of link ad
 function reCaptchaVerify(response) {
     if (response === document.querySelector('.g-recaptcha-response').value) {

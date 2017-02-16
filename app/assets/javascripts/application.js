@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require blocker/blocker-checker.js
 //= require ahoy
 //= require theme/js/lib/tether/tether.min
 //= require theme/js/lib/bootstrap/bootstrap.min
@@ -45,3 +46,4 @@ Date.prototype.yyyymmdd = function() {
             (dd>9 ? '' : '0') + dd
             ].join('-');
 };
+
