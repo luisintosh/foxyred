@@ -1,6 +1,7 @@
 class OptionsController < ApplicationController
   before_action :admin_only
   before_action :set_option, only: [:show, :edit, :update, :destroy]
+  helper_method :get_options
 
   # GET /options
   # GET /options.json
@@ -37,5 +38,9 @@ class OptionsController < ApplicationController
       unless current_user.admin?
         redirect_to root_path, :alert => "Access denied."
       end
+    end
+
+    def get_options(list)
+      Option.where(name: list)
     end
 end

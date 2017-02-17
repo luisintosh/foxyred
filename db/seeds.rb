@@ -16,13 +16,9 @@ settings = [
     # General
     ['string', 'site_name', 'Foxy.red - Shorten URLs and Make Money Online!'],
     ['string', 'site_description', 'Monetize your Website, Facebook or Twitter, use foxy.red link shortener to make money online. We pay for each visit to your short link.'],
-    ['string', 'default_language', 'en'],
-    ['string', 'site_languages', 'en'],
-    ['string', 'logo_url', ''],
     ['boolean', 'enable_ads', 'true'],
     ['integer', 'referral_percentage', '20'],
     ['integer', 'min_withdrawal_amount', '5'],
-    ['integer', 'paid_views_per_day_for_campaign', '1'],
     # Links 
     ['boolean', 'enable_banner_ads', 'true'],
     ['boolean', 'enable_popup_ads', 'true'],
@@ -36,7 +32,6 @@ settings = [
     ['string', 'recaptcha_public', '6LedexAUAAAAAJDY6uA1cVo0iucn6oiOR7AMl8pZ'],
     ['string', 'recaptcha_secret', '6LedexAUAAAAAPJwhf5hLwpnjcByHQOy5ZXA7OdM'],
     ['string', 'facebook_appid', ''],
-    ['string', 'facebook_thumbnail_url', ''],
     # Payment
     ['string', 'paydays', '1,16'],
     ['string', 'currency_code', 'USD'],
@@ -53,7 +48,6 @@ settings = [
     ['string', 'googleplus_url', '#'],
     # Email
     ['email', 'admin_email', 'admin@foxy.red'],
-    ['email', 'payments_email', 'payments@foxy.red'],
     ['email', 'notifications_email', 'no-reply@foxy.red'],
     ['email', 'support_email', 'support@foxy.red']
 ]
