@@ -93,7 +93,7 @@ Rails.application.configure do
     domain:               ENV['DOKKU_DOMAIN'],
     user_name:            ENV['SMTP_USERNAME'],
     password:             ENV['SMTP_PASSWORD'],
-    authentication:       'plain',
+    authentication:       :plain,
     enable_starttls_auto: true  
   }
   config.action_mailer.default_options = { from: "Foxy.red <#{ENV['SMTP_USERNAME'] || 'no-reply@foxy-dev.red'}>" }
