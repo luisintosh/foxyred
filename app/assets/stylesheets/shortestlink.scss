@@ -22,3 +22,17 @@
 .shortestlink #disable-adblock h1, .shortestlink #disable-adblock  p {
     margin: 30px 0;
 }
+
+.shortestlink footer {
+    padding: 30px 0;
+    background: #1e1e1e;
+    color: #b3b3b3;
+
+    a {
+        color: #b3b3b3; 
+    }
+
+    .socialnetworks a {
+        margin: 0 25px;
+    }
+}
