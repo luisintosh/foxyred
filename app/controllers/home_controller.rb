@@ -19,8 +19,4 @@ class HomeController < ApplicationController
 
   def terms
   end
-
-  def disable_adblock
-    @page_title = "Please disable AdBlock to continue | #{Option.get :site_name}"
-  end
 end

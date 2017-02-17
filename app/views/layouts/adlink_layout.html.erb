@@ -7,7 +7,7 @@
     <title>Link - <%= Option.get :site_name %></title>
     <meta name="description" content="<%= Option.get :site_description %>">
     <meta name="robots" content="noindex">
-    <meta name="view-action" content="link">
+    <meta name="view-action" content="<%= @view_type %>">
     <meta name="author" content="Foxy.red">
     <meta name="keywords" content="foxy.red, url shortener, marketing, make money, ouo.io, adfly, adf.ly, enlaces cortos, TinyURL, Bitly, bit.ly, ganar dinero, publicidad vínculo, url diminuta, acortador de url" />
     <!-- Facebook Open Graph -->
@@ -47,7 +47,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> 
-    <%= javascript_include_tag 'https://www.google.com/recaptcha/api.js?onload=reCaptchaCallback&render=explicit' %>
   </head>
 
   <body class="shortestlink">
@@ -117,6 +116,7 @@
             </div>
         </div>
     </footer>
+    <%= javascript_include_tag 'https://www.google.com/recaptcha/api.js?onload=reCaptchaCallback&render=explicit' %>
     <%= render 'layouts/analytics' %>
   </body>
 </html>

@@ -26,13 +26,14 @@ App.shortestlink = {
 // functions for first step of link ad
 function reCaptchaVerify(response) {
     if (response === document.querySelector('.g-recaptcha-response').value) {
-        $('#adlink-captcha').submit();
+        $('#link-captcha').submit();
         //console.log(true, $('#link-captcha'));
     }
 }
 
 function reCaptchaCallback() {
-    if (!location.href.match(/\/go\//)) {
+    var metaVal = $("meta[name=view-action]").attr('content');
+    if (metaVal == 'link-in') {
         grecaptcha.render('g-recaptcha', {
             'sitekey': $('#g-recaptcha').data('sitekey'),
             'callback': reCaptchaVerify

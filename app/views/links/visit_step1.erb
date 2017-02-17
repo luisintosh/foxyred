@@ -9,7 +9,7 @@
                             <%= Ad.get(:step1_banner_300x250) if Option.get(:enable_banner_ads) %>
                         </p>
                         <p>
-                            <%= form_tag("/go/#{@link.alias}", id: 'adlink-captcha') do %>
+                            <%= form_tag("/go/#{@link.alias}", id: 'link-captcha') do %>
                             <div class="text-center"><%= recaptcha_tags id: 'g-recaptcha', script: false %></div>
                             <% end %> 
                         </p>

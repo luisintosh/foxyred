@@ -65,13 +65,24 @@ adblocked = {
 
 
 // search adblock or ghostery
-if ($("meta[name=view-action]").attr('content') == 'link') {
-  adblocked.check(function(error, success) {
-      if (success) {
-        window.stop();
-        window.top.location.href = '/disable-adblock';
+$(document).on('turbolinks:load', function() {
+    var isAdblockActive = false;
+    var metaVal = $("meta[name=view-action]").attr('content');
+    if (metaVal == 'link-in' || metaVal == 'link-out') {
+      adblocked.check(function(error, success) {
+          if (success) {
+            isAdblockActive = true;
+          }
+      })
+    }
+
+    $(document).on('submit','#link-captcha',function(e) {
+      e.preventDefault();
+      if (isAdblockActive) {
+        $('#link-captcha').append('<input type="hidden" name="valid" value="0">')
       }
-  })
-}
+      this.submit();
+    })
+})
 
 })(window)

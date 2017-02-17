@@ -48,6 +48,7 @@ class LinksController < ApplicationController
 
   # GET /[A-Za-z0-9]
   def visit_step1
+    @view_type = 'link-in'
     @csymbol = Option.get :currency_symbol
     @ccode = Option.get :currency_code
     @min_pr = PayoutRate.where(country_code: :xx).last.earn.to_s
@@ -57,7 +58,10 @@ class LinksController < ApplicationController
 
   # POST /[A-Za-z0-9]
   def visit_step2
-    if !verify_recaptcha || request.get?
+    @view_type = 'link-out'
+    if params[:valid] && params[:valid] == '0'
+      redirect_to disable_adblock_path
+    elsif !verify_recaptcha || request.get?
       redirect_to "/#{@link.alias}"
     else
       @link.new_visit current_visit
@@ -90,6 +94,11 @@ class LinksController < ApplicationController
     end
   end
 
+  def disable_adblock
+    @view_type = 'blocker'
+    @page_title = "Please disable AdBlock to continue | #{Option.get :site_name}"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link
@@ -102,7 +111,7 @@ class LinksController < ApplicationController
 
     def resolve_layout
       case action_name
-      when 'visit_step1', 'visit_step2'
+      when 'visit_step1', 'visit_step2', 'disable_adblock'
         'adlink_layout'
       else
         'application'
