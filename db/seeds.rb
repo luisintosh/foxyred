@@ -48,9 +48,9 @@ settings = [
     ['boolean', 'enable_webmoney', 'false'],
     ['boolean', 'enable_skrill', 'false'],
     # Social media
-    ['string', 'facebook_url', ''],
-    ['string', 'twitter_url', ''],
-    ['string', 'googleplus_url', ''],
+    ['string', 'facebook_url', '#'],
+    ['string', 'twitter_url', '#'],
+    ['string', 'googleplus_url', '#'],
     # Email
     ['email', 'admin_email', 'admin@foxy.red'],
     ['email', 'payments_email', 'payments@foxy.red'],
