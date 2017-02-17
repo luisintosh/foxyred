@@ -142,14 +142,14 @@ Let's create a file named app.json in the root of your Rails app and add the fol
 
     {
       "name": "foxyred",
-      "description": "My awesome Rails app, running on Dokku!",
+      "description": "Shorten URLs",
       "keywords": [
         "dokku",
         "rails"
       ],
       "scripts": {
         "dokku": {
-          "postdeploy": "bundle exec rake db:migrate && bundle exec rake db:seed"
+          "postdeploy": "bundle exec rake db:migrate && bundle exec whenever"
         }
       }
     }
@@ -169,9 +169,9 @@ Push the app!
 This is the command! After upload the code you will see how Dokku is deploying the application.
 
 ### Rails commands
-Type the following command to run migrations. You can run every bundle or rake command.
+Type the following command to populate the database. Also you can run bundle or rake command.
 
-	$ ssh dokku@your-droplet-ip run foxyred rake db:reset
+	$ ssh dokku@your-droplet-ip run foxyred rake db:seed
 
 
 ## Finish Setup
