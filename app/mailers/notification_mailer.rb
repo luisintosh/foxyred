@@ -21,4 +21,8 @@ class NotificationMailer < ApplicationMailer
     def disabled_user_email(user)
         mail(to: user.email, subject: 'Sorry, your user account has been disabled')
     end
+
+    def test_notification_email(email)
+        mail(to: email, subject: 'This is a test notification')
+    end
 end
