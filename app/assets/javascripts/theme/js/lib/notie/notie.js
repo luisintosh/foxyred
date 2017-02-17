@@ -13,7 +13,7 @@
  *
 */
 
-var notie = function(){
+function notieFunc(){
 
     // SETTINGS
     // *********************************************
@@ -778,8 +778,8 @@ var notie = function(){
         input: input
     };
 
-}();
+}
 
 if (typeof module !== 'undefined' && module) {
-    module.exports = notie;
+    module.exports = notieFunc;
 }

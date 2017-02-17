@@ -1,5 +1,5 @@
 <% if notice %>
-<p class="alert alert-success alert-icon alert-close alert-dismissible fade in">
+<p class="alert alert-success alert-fill alert-close alert-dismissible fade in">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">×</span>
   </button>
@@ -7,12 +7,23 @@
   <%= notice %>
 </p>
 <% end %>
+
 <% if alert %>
-<p class="alert alert-danger alert-icon alert-close alert-dismissible fade in">
+<p class="alert alert-danger alert-fill alert-close alert-dismissible fade in">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">×</span>
   </button>
-  <i class="font-icon font-icon-warning"></i>
+  <i class="fa fa-info-circle"></i>
   <%= alert %>
+</p>
+<% end %>
+
+<% unless current_user.confirmed? %>
+<p class="alert alert-warning alert-fill alert-close alert-dismissible fade in">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">×</span>
+  </button>
+  <i class="fa fa-exclamation-triangle"></i>
+  Please confirm your email account.
 </p>
 <% end %>
