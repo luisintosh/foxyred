@@ -11,7 +11,5 @@ App.init = function () {
 //            TURBOLINKS START           //
 $(document).on('turbolinks:load', function() {
     App.init();
-})
-.ready(function(){
     App.userpanel.start();
 });
