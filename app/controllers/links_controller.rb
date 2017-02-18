@@ -4,6 +4,7 @@ class LinksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:visit_step1,:visit_step2]
   layout :resolve_layout
   helper_method :full_short_url
+  helper_method :mobile_device?
 
   # GET /links
   # GET /links.json
@@ -122,6 +123,13 @@ class LinksController < ApplicationController
       URI.join(root_url(only_path: false), link.alias).to_s
     end
 
+    def mobile_device?
+      if session[:mobile_param]
+        session[:mobile_param] == "1"
+      else
+        request.user_agent =~ /Mobile|webOS/
+      end
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params

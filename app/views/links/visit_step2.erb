@@ -24,12 +24,12 @@
             <div class="col-6 col-md-3 text-right">
                 <%= Ad.get :step2_banner_160x600 if Option.get(:enable_banner_ads) %>
             </div>
+            <% if mobile_device? %>
             <div class="col-lg-12">
-                <% if current_visit.device_type == 'Mobile' %>
                 <%= Ad.get(:step2_mobile) if Option.get(:enable_mobile_ads) %>
-                <% end %>
             </div>
-            <div>
+            <% end %>
+            <div class="col-lg-12">
                 <%= Ad.get(:step2_popup) if Option.get(:enable_popup_ads) %>
             </div>
         </div>
