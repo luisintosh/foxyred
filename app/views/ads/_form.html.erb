@@ -14,16 +14,6 @@
   <% end %>
 
   <div class="form-group row">
-    <%= f.label :default, class: 'col-sm-2 form-control-label' %>
-    <div class="col-sm-10">
-      <p class="form-control-static checkbox-toggle">
-        <%= f.check_box :default, class: 'form-control' %>
-        <%= f.label :default, 'Value' %>
-      </p>
-    </div>
-  </div>
-
-  <div class="form-group row">
     <%= f.label :position, class: 'col-sm-2 form-control-label' %>
     <div class="col-sm-10">
       <p class="form-control-static">
@@ -45,70 +35,7 @@
     <%= f.label :code, class: 'col-sm-2 form-control-label' %>
     <div class="col-sm-10">
       <p class="form-control-static">
-        <%= f.text_area :code, class: 'form-control' %>
-      </p>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <%= f.label :type, class: 'col-sm-2 form-control-label' %>
-    <div class="col-sm-10">
-      <p class="form-control-static">
-        <%= f.text_field :type, class: 'form-control' %>
-      </p>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <%= f.label :price, class: 'col-sm-2 form-control-label' %>
-    <div class="col-sm-10">
-      <p class="form-control-static">
-        <%= f.text_field :price, class: 'form-control' %>
-      </p>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <%= f.label :traffic_source, class: 'col-sm-2 form-control-label' %>
-    <div class="col-sm-10">
-      <p class="form-control-static">
-        <%= f.select :traffic_source, Ad.get_sources, {include_blank: true}, {class: 'form-control'} %>
-      </p>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <%= f.label :countries, class: 'col-sm-2 form-control-label' %>
-    <div class="col-sm-10">
-      <p class="form-control-static">
-        <%= f.text_field :countries, class: 'form-control' %>
-      </p>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <%= f.label :start_date, class: 'col-sm-2 form-control-label' %>
-    <div class="col-sm-10">
-      <p class="form-control-static">
-        <%= f.datetime_select :start_date, class: 'form-control' %>
-      </p>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <%= f.label :end_date, class: 'col-sm-2 form-control-label' %>
-    <div class="col-sm-10">
-      <p class="form-control-static">
-        <%= f.datetime_select :end_date, class: 'form-control' %>
-      </p>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <%= f.label :weight, class: 'col-sm-2 form-control-label' %>
-    <div class="col-sm-10">
-      <p class="form-control-static">
-        <%= f.number_field :weight, class: 'form-control' %>
+        <%= f.text_area :code, class: 'form-control', rows: 15 %>
       </p>
     </div>
   </div>

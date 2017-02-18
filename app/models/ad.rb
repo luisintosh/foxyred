@@ -1,5 +1,5 @@
 class Ad < ApplicationRecord
-    validates :position, :network, :code, :type, :price, :traffic_source, :countries, :start_date, :end_date, :weight, presence: true
+    validates :position, :network, :code, presence: true
 
     def self.get_positions
         pos = [
