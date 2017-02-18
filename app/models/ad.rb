@@ -28,6 +28,7 @@ class Ad < ApplicationRecord
     def self.get(pos)
         ad = Ad.where(position: pos).sample
         if ad && Option.get(:enable_ads)
+            ad.update weight: ad.weight.to_i + 1 
             ad.code.html_safe
         end
     end
