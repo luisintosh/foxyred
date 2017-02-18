@@ -26,8 +26,8 @@ class Ad < ApplicationRecord
     end
 
     def self.get(pos)
-        if Option.get :enable_ads
-            ad = Ad.where(position: pos).sample 
+        ad = Ad.where(position: pos).sample
+        if ad && Option.get(:enable_ads)
             ad.code
         end
     end
