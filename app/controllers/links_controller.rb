@@ -60,7 +60,8 @@ class LinksController < ApplicationController
   # POST /[A-Za-z0-9]
   def visit_step2
     @view_type = 'link-out'
-    if params[:valid] && params[:valid] == '0'
+    # adblock detect (assets/javascript/blocker/adb-detecter.js)
+    if cookies[:ABID] && cookies[:ABID].length < 10
       redirect_to disable_adblock_path
     elsif !verify_recaptcha || request.get?
       redirect_to "/#{@link.alias}"

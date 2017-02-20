@@ -6,7 +6,7 @@
 var adblocked = {};
 
 function Adblocked() {
-  this.scriptFile = "//pagead2.googlesyndication.com/pagead/show_ads.js";
+  this.scriptFile = "//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US";
 }
 
 Adblocked.prototype.isAdblocked = function() {

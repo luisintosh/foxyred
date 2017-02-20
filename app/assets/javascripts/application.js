@@ -10,9 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery2
 //= require jquery_ujs
-//= require blocker/blocker-checker.js
+//= require blocker/adb-detecter.js
 //= require ahoy
 //= require theme/js/lib/tether/tether.min
 //= require theme/js/lib/bootstrap/bootstrap.min
