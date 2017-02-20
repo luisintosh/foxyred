@@ -9,17 +9,19 @@ App.shortestlink = {
 
     startCountDown: function () {
         if ( $('#link-out').length === 0 ) return;
-        var myCounter = new Countdown({
-            seconds: 5,
-            onUpdateStatus: function(e) {
-                $('#link-out').html(e);
-            },
-            onCounterEnd: function() {
-                $('#link-out').html('Open link');
-                $('#link-out').removeClass('disabled');
-            }
+        $(window).load(function() {
+            var myCounter = new Countdown({
+                seconds: 5,
+                onUpdateStatus: function(e) {
+                    $('#link-out').html(e);
+                },
+                onCounterEnd: function() {
+                    $('#link-out').html('Open link');
+                    $('#link-out').removeClass('disabled');
+                }
+            });
+            myCounter.start();
         });
-        myCounter.start();
     }
 };
  
