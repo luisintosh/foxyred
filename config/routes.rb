@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # user panel
   scope '/panel' do
-    resources :ads, :links, :pages, :payout_rates, :options, :users
+    resources :ads, :links, :pages, :payout_rates, :options, :users, :posts
     get 'dashboard', to: 'dashboard#index', as: :dashboard
     get 'dashboard/chart_data', to: 'dashboard#chart_data'
     get 'referrals', to: 'referrals#index', as: :referrals

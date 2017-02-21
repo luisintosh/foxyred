@@ -12,7 +12,7 @@
 //
 //= require jquery2
 //= require jquery_ujs
-//= require blocker/adb-detecter.js
+//= require blocker/adb-detecter
 //= require ahoy
 //= require theme/js/lib/tether/tether.min
 //= require theme/js/lib/bootstrap/bootstrap.min
@@ -26,6 +26,7 @@
 //= require theme/js/lib/bootstrap-table/tableExport.min
 //= require theme/js/lib/charts-c3js/c3.min
 //= require theme/js/lib/d3/d3.min
+//= require theme/js/lib/summernote/summernote.min
 //= require theme/js/lib/countdown/countdown
 //= require turbolinks
 //= require app.init

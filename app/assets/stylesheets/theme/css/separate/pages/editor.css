@@ -810,8 +810,8 @@
 }
 @font-face {
   font-family: "startui";
-  src: url("../fonts/startui.eot");
-  src: url("../fonts/startui.eot?#iefix") format("embedded-opentype"), url("../fonts/startui.woff") format("woff"), url("../fonts/startui.ttf") format("truetype"), url("../fonts/startui.svg#startui") format("svg");
+  src: url("../../../fonts/startui.eot");
+  src: url("../../../fonts/startui.eot?#iefix") format("embedded-opentype"), url("../../../fonts/startui.woff") format("woff"), url("../../../fonts/startui.ttf") format("truetype"), url("../../../fonts/startui.svg#startui") format("svg");
   font-weight: normal;
   font-style: normal;
 }

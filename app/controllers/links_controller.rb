@@ -55,11 +55,16 @@ class LinksController < ApplicationController
     @min_pr = PayoutRate.where(country_code: :xx).last.earn.to_s
     @link.real_hits = (@link.real_hits).to_i + 1
     @link.save
+    @post = Post.all.sample
   end
 
   # POST /[A-Za-z0-9]
   def visit_step2
     @view_type = 'link-out'
+    @csymbol = Option.get :currency_symbol
+    @ccode = Option.get :currency_code
+    @min_pr = PayoutRate.where(country_code: :xx).last.earn.to_s
+    @post = Post.all.sample
     # adblock detect (assets/javascript/blocker/adb-detecter.js)
     if cookies[:ABID] && cookies[:ABID].length < 10
       redirect_to disable_adblock_path

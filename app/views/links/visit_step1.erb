@@ -13,6 +13,15 @@
                             <div class="text-center"><%= recaptcha_tags id: 'g-recaptcha', script: false %></div>
                             <% end %> 
                         </p>
+                        <% if @post %>
+                            <div class="post-main">
+                                <b>Quick Tip to make money!</b>
+                                <h1 class="post-title"><%= @post.title %></h1>
+                                <div class="post-content">
+                                    <%= @post.content.html_safe %>
+                                </div>
+                            </div>
+                        <% end %>
                         <p>
                             <%= Ad.get(:step1_banner_300x100) if Option.get(:enable_banner_ads) %>
                         </p>

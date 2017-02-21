@@ -10,8 +10,17 @@
                         </p>
                         <p>
                             <div>Please wait</div>
-                            <a href="<%= @link.url %>" target="_blank" id="link-out" class="btn btn-sm btn-secondary-outline disabled">...</i></a>
+                            <a href="<%= @link.url %>" id="link-out" class="btn btn-sm btn-secondary-outline disabled">...</i></a>
                         </p>
+                        <% if @post %>
+                            <div class="post-main">
+                                <b>Quick Tip to make money!</b>
+                                <h1 class="post-title"><%= @post.title %></h1>
+                                <div class="post-content">
+                                    <%= @post.content.html_safe %>
+                                </div>
+                            </div>
+                        <% end %>
                         <p>
                             <%= Ad.get(:step2_banner_300x100) if Option.get(:enable_banner_ads) %>
                         </p>

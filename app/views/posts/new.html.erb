@@ -1,0 +1,9 @@
+<div class="card">
+    <header class="card-header card-header-xxl">
+        New Post
+    </header>
+    <div class="card-block">
+        <%= render 'form', post: @post %>
+        <%= link_to 'Back', posts_path, class: 'btn btn-primary' %>
+    </div>
+</div>
