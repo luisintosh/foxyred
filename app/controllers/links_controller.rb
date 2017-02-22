@@ -1,7 +1,7 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:destroy]
   before_action :set_link_by_alias, only: [:visit_step1,:visit_step2]
-  skip_before_action :authenticate_user!, only: [:visit_step1,:visit_step2]
+  skip_before_action :authenticate_user!, only: [:visit_step1,:visit_step2,:disable_adblock]
   layout :resolve_layout
   helper_method :full_short_url
   helper_method :mobile_device?
