@@ -47,7 +47,7 @@ $(document).on('turbolinks:load', function() {
         // call to script
         $.getScript('https://z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US')
             .done(function() {
-                console.log('Adb no detected!');
+                //console.log('Adb no detected!');
                 document.write = defaultWriteFunc;
                 //$('#'+hashID).remove();
                 removeItem();
@@ -55,7 +55,7 @@ $(document).on('turbolinks:load', function() {
                 window.document.cookie = "ABID=" + true_hash + "; path=/";
             })
             .fail(function() {
-                console.log('Adb detected!');
+                //console.log('Adb detected!');
                 document.write = defaultWriteFunc;
                 //$('#'+hashID).remove();
                 removeItem();
